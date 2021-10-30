@@ -14,6 +14,10 @@
 		D584FB6C272D3492008C4653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D584FB6B272D3492008C4653 /* Assets.xcassets */; };
 		D584FB6F272D3492008C4653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D584FB6D272D3492008C4653 /* LaunchScreen.storyboard */; };
 		D584FB77272D35C5008C4653 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D584FB76272D35C5008C4653 /* README.md */; };
+		D584FB85272D3AD1008C4653 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB84272D3AD0008C4653 /* MainController.swift */; };
+		D584FB89272D411C008C4653 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB88272D411C008C4653 /* Profile.swift */; };
+		D584FB8B272D41A3008C4653 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB8A272D41A3008C4653 /* Extension.swift */; };
+		D584FB91272D5AE7008C4653 /* Cera Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D584FB90272D5AE7008C4653 /* Cera Pro Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		D584FB6E272D3492008C4653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D584FB70272D3492008C4653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D584FB76272D35C5008C4653 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D584FB84272D3AD0008C4653 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		D584FB88272D411C008C4653 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D584FB8A272D41A3008C4653 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D584FB90272D5AE7008C4653 /* Cera Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cera Pro Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,12 @@
 		D584FB61272D3491008C4653 /* blog-app */ = {
 			isa = PBXGroup;
 			children = (
+				D584FB78272D381A008C4653 /* Model */,
+				D584FB7D272D3869008C4653 /* View */,
+				D584FB7E272D3870008C4653 /* ViewModel */,
+				D584FB7F272D387A008C4653 /* Controller */,
+				D584FB81272D3894008C4653 /* API */,
+				D584FB80272D388C008C4653 /* Util */,
 				D584FB62272D3491008C4653 /* AppDelegate.swift */,
 				D584FB64272D3491008C4653 /* SceneDelegate.swift */,
 				D584FB66272D3491008C4653 /* ViewController.swift */,
@@ -68,6 +82,60 @@
 				D584FB70272D3492008C4653 /* Info.plist */,
 			);
 			path = "blog-app";
+			sourceTree = "<group>";
+		};
+		D584FB78272D381A008C4653 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D584FB7D272D3869008C4653 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D584FB88272D411C008C4653 /* Profile.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D584FB7E272D3870008C4653 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D584FB7F272D387A008C4653 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D584FB84272D3AD0008C4653 /* MainController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D584FB80272D388C008C4653 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D584FB8C272D59BF008C4653 /* Font */,
+				D584FB8A272D41A3008C4653 /* Extension.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		D584FB81272D3894008C4653 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D584FB8C272D59BF008C4653 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D584FB90272D5AE7008C4653 /* Cera Pro Bold.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D584FB6F272D3492008C4653 /* LaunchScreen.storyboard in Resources */,
+				D584FB91272D5AE7008C4653 /* Cera Pro Bold.otf in Resources */,
 				D584FB6C272D3492008C4653 /* Assets.xcassets in Resources */,
 				D584FB77272D35C5008C4653 /* README.md in Resources */,
 				D584FB6A272D3491008C4653 /* Main.storyboard in Resources */,
@@ -143,8 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D584FB67272D3491008C4653 /* ViewController.swift in Sources */,
+				D584FB89272D411C008C4653 /* Profile.swift in Sources */,
 				D584FB63272D3491008C4653 /* AppDelegate.swift in Sources */,
+				D584FB8B272D41A3008C4653 /* Extension.swift in Sources */,
 				D584FB65272D3491008C4653 /* SceneDelegate.swift in Sources */,
+				D584FB85272D3AD1008C4653 /* MainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
