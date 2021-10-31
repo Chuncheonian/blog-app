@@ -30,7 +30,31 @@ class Profile: UIView {
     let btn = UIButton(type: .system)
     btn.setImage(UIImage(named: "GitHub"), for: .normal)
     btn.tintColor = .systemGray
-    btn.addTarget(self, action: #selector(handleGithub), for: .touchUpInside)
+    btn.addTarget(self, action: #selector(handleSocialBtn), for: .touchUpInside)
+    return btn
+  }()
+  
+  private lazy var facebookButton: UIButton = {
+    let btn = UIButton(type: .system)
+    btn.setImage(UIImage(named: "Facebook"), for: .normal)
+    btn.tintColor = .systemGray
+    btn.addTarget(self, action: #selector(handleSocialBtn), for: .touchUpInside)
+    return btn
+  }()
+  
+  private lazy var instaButton: UIButton = {
+    let btn = UIButton(type: .system)
+    btn.setImage(UIImage(named: "Instagram"), for: .normal)
+    btn.tintColor = .systemGray
+    btn.addTarget(self, action: #selector(handleSocialBtn), for: .touchUpInside)
+    return btn
+  }()
+  
+  private lazy var emailButton: UIButton = {
+    let btn = UIButton(type: .system)
+    btn.setImage(UIImage(named: "Email"), for: .normal)
+    btn.tintColor = .systemGray
+    btn.addTarget(self, action: #selector(handleSocialBtn), for: .touchUpInside)
     return btn
   }()
   
@@ -39,22 +63,19 @@ class Profile: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    
     addSubview(profileImageView)
     profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 13, paddingLeft: 33)
     profileImageView.setDimensions(height: 70, width: 70)
     profileImageView.layer.cornerRadius = 70 / 2
         
-    let infoStack = UIStackView(arrangedSubviews: [nameLabel, githubButton])
-    infoStack.axis = .vertical
-    infoStack.alignment = .leading
-    infoStack.spacing = 14
+    addSubview(nameLabel)
+    nameLabel.anchor(top: topAnchor, left: profileImageView.rightAnchor, paddingTop: 16, paddingLeft: 12)
     
-    addSubview(infoStack)
-    infoStack.centerY(inView: profileImageView)
-    infoStack.anchor(left: profileImageView.rightAnchor, paddingLeft: 12)
-    
-    
+    let socialBtnStack = UIStackView(arrangedSubviews: [githubButton, facebookButton, instaButton, emailButton])
+    socialBtnStack.axis = .horizontal
+    socialBtnStack.spacing = 12
+    addSubview(socialBtnStack)
+    socialBtnStack.anchor(top: nameLabel.bottomAnchor, left: profileImageView.rightAnchor, paddingTop: 14, paddingLeft: 12)
   }
   
   required init?(coder: NSCoder) {
@@ -63,9 +84,7 @@ class Profile: UIView {
   
   // MARK: - Actions
   
-  @objc func handleGithub() {
-    print("DEBUG: Clicked Github Button.")
+  @objc func handleSocialBtn() {
+    print("DEBUG: Clicked Social Button.")
   }
-  
-  
 }
