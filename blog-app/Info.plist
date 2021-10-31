@@ -5,6 +5,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Cera Pro Bold.otf</string>
+		<string>NotoSansKR-Light.otf</string>
+		<string>NotoSansKR-Regular.otf</string>
+		<string>NotoSansKR-Medium.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

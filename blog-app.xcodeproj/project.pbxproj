@@ -18,6 +18,14 @@
 		D584FB89272D411C008C4653 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB88272D411C008C4653 /* Profile.swift */; };
 		D584FB8B272D41A3008C4653 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB8A272D41A3008C4653 /* Extension.swift */; };
 		D584FB91272D5AE7008C4653 /* Cera Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D584FB90272D5AE7008C4653 /* Cera Pro Bold.otf */; };
+		D5E3B6B8272E8B5900F06612 /* ViewModel in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6B7272E8B5900F06612 /* ViewModel */; };
+		D5E3B6BB272E8BC500F06612 /* PagingKit in Frameworks */ = {isa = PBXBuildFile; productRef = D5E3B6BA272E8BC500F06612 /* PagingKit */; };
+		D5E3B6BD272E8FE900F06612 /* PagingMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E3B6BC272E8FE900F06612 /* PagingMenuCell.swift */; };
+		D5E3B6BF272E952900F06612 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E3B6BE272E952900F06612 /* FeedController.swift */; };
+		D5E3B6C1272E954F00F06612 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E3B6C0272E954F00F06612 /* IntroController.swift */; };
+		D5E3B6C3272E9BFD00F06612 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6C2272E9BFD00F06612 /* NotoSansKR-Light.otf */; };
+		D5E3B6C9272EAB9C00F06612 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6C8272EAB9B00F06612 /* NotoSansKR-Medium.otf */; };
+		D5E3B6CB272EB00400F06612 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6CA272EB00400F06612 /* NotoSansKR-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +42,13 @@
 		D584FB88272D411C008C4653 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D584FB8A272D41A3008C4653 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D584FB90272D5AE7008C4653 /* Cera Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cera Pro Bold.otf"; sourceTree = "<group>"; };
+		D5E3B6B7272E8B5900F06612 /* ViewModel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModel; sourceTree = "<group>"; };
+		D5E3B6BC272E8FE900F06612 /* PagingMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingMenuCell.swift; sourceTree = "<group>"; };
+		D5E3B6BE272E952900F06612 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
+		D5E3B6C0272E954F00F06612 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
+		D5E3B6C2272E9BFD00F06612 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		D5E3B6C8272EAB9B00F06612 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		D5E3B6CA272EB00400F06612 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5E3B6BB272E8BC500F06612 /* PagingKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,7 +85,7 @@
 			children = (
 				D584FB78272D381A008C4653 /* Model */,
 				D584FB7D272D3869008C4653 /* View */,
-				D584FB7E272D3870008C4653 /* ViewModel */,
+				D5E3B6B7272E8B5900F06612 /* ViewModel */,
 				D584FB7F272D387A008C4653 /* Controller */,
 				D584FB81272D3894008C4653 /* API */,
 				D584FB80272D388C008C4653 /* Util */,
@@ -95,21 +111,17 @@
 			isa = PBXGroup;
 			children = (
 				D584FB88272D411C008C4653 /* Profile.swift */,
+				D5E3B6BC272E8FE900F06612 /* PagingMenuCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		D584FB7E272D3870008C4653 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D584FB7F272D387A008C4653 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				D584FB84272D3AD0008C4653 /* MainController.swift */,
+				D5E3B6BE272E952900F06612 /* FeedController.swift */,
+				D5E3B6C0272E954F00F06612 /* IntroController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -133,6 +145,9 @@
 		D584FB8C272D59BF008C4653 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				D5E3B6C2272E9BFD00F06612 /* NotoSansKR-Light.otf */,
+				D5E3B6CA272EB00400F06612 /* NotoSansKR-Regular.otf */,
+				D5E3B6C8272EAB9B00F06612 /* NotoSansKR-Medium.otf */,
 				D584FB90272D5AE7008C4653 /* Cera Pro Bold.otf */,
 			);
 			path = Font;
@@ -154,6 +169,9 @@
 			dependencies = (
 			);
 			name = "blog-app";
+			packageProductDependencies = (
+				D5E3B6BA272E8BC500F06612 /* PagingKit */,
+			);
 			productName = "blog-app";
 			productReference = D584FB5F272D3491008C4653 /* blog-app.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +200,9 @@
 				Base,
 			);
 			mainGroup = D584FB56272D3491008C4653;
+			packageReferences = (
+				D5E3B6B9272E8BC500F06612 /* XCRemoteSwiftPackageReference "PagingKit" */,
+			);
 			productRefGroup = D584FB60272D3491008C4653 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -197,10 +218,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D584FB6F272D3492008C4653 /* LaunchScreen.storyboard in Resources */,
+				D5E3B6CB272EB00400F06612 /* NotoSansKR-Regular.otf in Resources */,
 				D584FB91272D5AE7008C4653 /* Cera Pro Bold.otf in Resources */,
+				D5E3B6C3272E9BFD00F06612 /* NotoSansKR-Light.otf in Resources */,
 				D584FB6C272D3492008C4653 /* Assets.xcassets in Resources */,
+				D5E3B6C9272EAB9C00F06612 /* NotoSansKR-Medium.otf in Resources */,
 				D584FB77272D35C5008C4653 /* README.md in Resources */,
 				D584FB6A272D3491008C4653 /* Main.storyboard in Resources */,
+				D5E3B6B8272E8B5900F06612 /* ViewModel in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,10 +238,13 @@
 			files = (
 				D584FB67272D3491008C4653 /* ViewController.swift in Sources */,
 				D584FB89272D411C008C4653 /* Profile.swift in Sources */,
+				D5E3B6BD272E8FE900F06612 /* PagingMenuCell.swift in Sources */,
+				D5E3B6C1272E954F00F06612 /* IntroController.swift in Sources */,
 				D584FB63272D3491008C4653 /* AppDelegate.swift in Sources */,
 				D584FB8B272D41A3008C4653 /* Extension.swift in Sources */,
 				D584FB65272D3491008C4653 /* SceneDelegate.swift in Sources */,
 				D584FB85272D3AD1008C4653 /* MainController.swift in Sources */,
+				D5E3B6BF272E952900F06612 /* FeedController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +464,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D5E3B6B9272E8BC500F06612 /* XCRemoteSwiftPackageReference "PagingKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kazuhiro4949/PagingKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D5E3B6BA272E8BC500F06612 /* PagingKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5E3B6B9272E8BC500F06612 /* XCRemoteSwiftPackageReference "PagingKit" */;
+			productName = PagingKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D584FB57272D3491008C4653 /* Project object */;
 }

@@ -6,16 +6,39 @@
 //
 
 import UIKit
+import PagingKit
 
 class MainController: UIViewController {
   
+  // MARK: - Properties
+  
+  var pagingMenuVC: PagingMenuViewController!
+  var pagingContentVC: PagingContentViewController!
+    
+  var dataSource = [(menu: String, content: UIViewController)]() {
+    didSet {
+      pagingMenuVC.reloadData()
+      pagingContentVC.reloadData()
+    }
+  }
+  
+  lazy var firstLoad: (() -> Void)? = { [weak self, pagingMenuVC, pagingContentVC] in
+    pagingMenuVC?.reloadData()
+    pagingContentVC?.reloadData()
+    self?.firstLoad = nil
+  }
   
   // MARK: - Lifecycle
-  
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     configureNavi()
     configureUI()
+  }
+  
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    firstLoad?()
   }
   
   // MARK: - Actions
@@ -34,9 +57,8 @@ class MainController: UIViewController {
   
   // MARK: - Helpers
   
-  func configureNavi() {
+  fileprivate func configureNavi() {
     view.backgroundColor = .white
-    
     self.navigationController?.navigationBar.tintColor = .black
     
     let searchIcon = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
@@ -54,20 +76,115 @@ class MainController: UIViewController {
     
     navigationItem.leftBarButtonItem = searchIcon
     navigationItem.rightBarButtonItems = [settingIcon, notiIcon]
-    
   }
   
-  func configureUI() {
+  fileprivate func configureUI() {
     
+    // Profile
     let profile = Profile()
-    
     view.addSubview(profile)
     profile.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
     profile.setHeight(100)
-    
-  }
 
+    // PagingMenu
+    pagingMenuVC = PagingMenuViewController()
+    addChild(pagingMenuVC)
+    view.addSubview(pagingMenuVC.view)
+    pagingMenuVC.view.anchor(top: profile.bottomAnchor, left: view.leftAnchor, paddingLeft: 33)
+    pagingMenuVC.view.setDimensions(height: 35, width: 100)
+    pagingMenuVC.didMove(toParent: self)
+    pagingMenuVC.register(type: PagingMenuCell.self, forCellWithReuseIdentifier: "PagingMenuCell")
+    
+    // PagingMenuFocusView in PagingMenu
+    let pagingMenuFocusView = UnderlineFocusView()
+    pagingMenuFocusView.underlineColor = .black
+    pagingMenuFocusView.underlineHeight = 2
+    pagingMenuVC.registerFocusView(view: pagingMenuFocusView)
+    pagingMenuVC.dataSource = self
+    pagingMenuVC.delegate = self
+    
+    // Divider
+    let divider = UIView()
+    divider.backgroundColor = .lightGray
+    view.addSubview(divider)
+    divider.anchor(top: pagingMenuVC.view.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 1)
+    
+    // PagingContent
+    pagingContentVC = PagingContentViewController()
+    addChild(pagingContentVC)
+    view.addSubview(pagingContentVC.view)
+    pagingContentVC.view.anchor(top: divider.bottomAnchor, left: view.leftAnchor,
+                                    bottom: view.bottomAnchor, right: view.rightAnchor)
+    pagingContentVC.dataSource = self
+    pagingContentVC.delegate = self
+    
+    dataSource = makeDataSource()
+  }
   
+  fileprivate func makeDataSource() -> [(menu: String, content: UIViewController)] {
+    let menuArr = ["글", "소개"]
+    
+    return menuArr.map {
+      let title = $0
+      
+      switch title {
+      case "글":
+        let vc = FeedController()
+        return (menu: title, content: vc)
+      case "소개":
+        let vc = IntroController()
+        return (menu: title, content: vc)
+      default:
+        let vc = FeedController()
+        return (menu: title, content: vc)
+      }
+    }
+  }
+}
+
+
+// MARK: - PagingMenuViewControllerDelegate
+
+extension MainController: PagingMenuViewControllerDelegate {
+  func menuViewController(viewController: PagingMenuViewController, didSelect page: Int, previousPage: Int) {
+    pagingContentVC.scroll(to: page, animated: true)
+  }
+}
+
+// MARK: - PagingMenuViewControllerDataSource
+
+extension MainController: PagingMenuViewControllerDataSource {
+  func numberOfItemsForMenuViewController(viewController: PagingMenuViewController) -> Int {
+    return dataSource.count
+  }
   
+  func menuViewController(viewController: PagingMenuViewController, widthForItemAt index: Int) -> CGFloat {
+    return 100 / 2
+  }
   
+  func menuViewController(viewController: PagingMenuViewController, cellForItemAt index: Int) -> PagingMenuViewCell {
+    let cell = viewController.dequeueReusableCell(withReuseIdentifier: "PagingMenuCell", for: index) as! PagingMenuCell
+    cell.titleLabel.text = dataSource[index].menu
+    return cell
+  }
+}
+
+// MARK: - PagingContentViewControllerDelegate
+
+extension MainController: PagingContentViewControllerDelegate {
+  func contentViewController(viewController: PagingContentViewController, didManualScrollOn index: Int, percent: CGFloat) {
+    pagingMenuVC.scroll(index: index, percent: percent, animated: false)
+  }
+}
+
+// MARK: - PagingContentViewControllerDataSource
+
+extension MainController: PagingContentViewControllerDataSource {
+  func numberOfItemsForContentViewController(viewController: PagingContentViewController) -> Int {
+    return dataSource.count
+  }
+  
+  func contentViewController(viewController: PagingContentViewController, viewControllerAt index: Int) -> UIViewController {
+    return dataSource[index].content
+  }
 }
