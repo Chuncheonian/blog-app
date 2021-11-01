@@ -12,8 +12,8 @@ class MainController: UIViewController {
   
   // MARK: - Properties
   
-  var pagingMenuVC: PagingMenuViewController!
-  var pagingContentVC: PagingContentViewController!
+  let pagingMenuVC = PagingMenuViewController()
+  let pagingContentVC = PagingContentViewController()
     
   var dataSource = [(menu: String, content: UIViewController)]() {
     didSet {
@@ -23,22 +23,22 @@ class MainController: UIViewController {
   }
   
   lazy var firstLoad: (() -> Void)? = { [weak self, pagingMenuVC, pagingContentVC] in
-    pagingMenuVC?.reloadData()
-    pagingContentVC?.reloadData()
+    pagingMenuVC.reloadData()
+    pagingContentVC.reloadData()
     self?.firstLoad = nil
   }
   
   // MARK: - Lifecycle
-    
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    firstLoad?()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureNavi()
     configureUI()
-  }
-  
-  override func viewDidLayoutSubviews() {
-    super.viewDidLayoutSubviews()
-    firstLoad?()
   }
   
   // MARK: - Actions
@@ -87,12 +87,11 @@ class MainController: UIViewController {
     profile.setHeight(100)
 
     // PagingMenu
-    pagingMenuVC = PagingMenuViewController()
     addChild(pagingMenuVC)
     view.addSubview(pagingMenuVC.view)
+    pagingMenuVC.didMove(toParent: self)
     pagingMenuVC.view.anchor(top: profile.bottomAnchor, left: view.leftAnchor, paddingLeft: 33)
     pagingMenuVC.view.setDimensions(height: 35, width: 100)
-    pagingMenuVC.didMove(toParent: self)
     pagingMenuVC.register(type: PagingMenuCell.self, forCellWithReuseIdentifier: "PagingMenuCell")
     
     // PagingMenuFocusView in PagingMenu
@@ -105,16 +104,16 @@ class MainController: UIViewController {
     
     // Divider
     let divider = UIView()
-    divider.backgroundColor = .lightGray
+    divider.backgroundColor = .systemGray5
     view.addSubview(divider)
     divider.anchor(top: pagingMenuVC.view.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 1)
     
     // PagingContent
-    pagingContentVC = PagingContentViewController()
     addChild(pagingContentVC)
     view.addSubview(pagingContentVC.view)
+    pagingContentVC.didMove(toParent: self)
     pagingContentVC.view.anchor(top: divider.bottomAnchor, left: view.leftAnchor,
-                                    bottom: view.bottomAnchor, right: view.rightAnchor)
+                                    bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor)
     pagingContentVC.dataSource = self
     pagingContentVC.delegate = self
     
@@ -123,10 +122,10 @@ class MainController: UIViewController {
   
   fileprivate func makeDataSource() -> [(menu: String, content: UIViewController)] {
     let menuArr = ["글", "소개"]
-    
+
     return menuArr.map {
       let title = $0
-      
+
       switch title {
       case "글":
         let vc = FeedController()
