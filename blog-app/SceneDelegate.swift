@@ -17,8 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let scene = (scene as? UIWindowScene) else { return }
     
     window = UIWindow(windowScene: scene)
-    window?.rootViewController = UINavigationController(rootViewController: MainController())
-    window?.makeKeyAndVisible()
+    
+    // Login 가정
+    AuthService.logUserIn(withEmail: "admin@gmail.com", password: "123456") { result, error in
+      if let error = error {
+        print("DEBUG: Failed to log user in \(error.localizedDescription)")
+        return
+      }
+      
+      self.window?.rootViewController = UINavigationController(rootViewController: MainController())
+      self.window?.makeKeyAndVisible()
+    }
+    
+    
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {}

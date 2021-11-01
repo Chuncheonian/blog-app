@@ -14,30 +14,35 @@ class MainController: UIViewController {
   
   // MARK: - Properties
   
-  let menuArr = ["글", "소개"]
+  private let menuArr = ["글", "소개"]
+  private var user: User?
+  private let email = "admin@gmail.com"
+  private let password = "123456"
+  
   
   // MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureNavi()
+    configure()
+    checkIfUserIsLoggedIn()
     configureUI()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
     checkIfUserIsLoggedIn()
   }
   
   // MARK: - API
-  
-  func checkIfUserIsLoggedIn() {
+    
+  fileprivate func checkIfUserIsLoggedIn() {
     if Auth.auth().currentUser == nil {
-      // Auth.auth()가 global Queue로 돌기 때문에 mainQueue로 빼줌
-      print(1123)
-//      DispatchQueue.main.async {
-//        let controller = LoginController()
-//        controller.delegate = self
-//        let nav = UINavigationController(rootViewController: controller)
-//        nav.modalPresentationStyle = .fullScreen
-//        self.present(nav, animated: true, completion: nil)
-//      }
+      self.configureGuestUI()
+    } else {
+      UserService.fetchUser { user in
+        self.user = user
+        self.configureManagerUI(withUser: user)
+      }
     }
   }
   
@@ -51,31 +56,51 @@ class MainController: UIViewController {
     print("DEBUG: Clicked Noti Icon")
   }
   
-  @objc func handleSeting() {
-    print("DEBUG: Clicked Setting Icon")
-  }
-  
   // MARK: - Helpers
   
-  fileprivate func configureNavi() {
+  fileprivate func configure() {
     view.backgroundColor = .white
     self.navigationController?.navigationBar.tintColor = .black
     
-    let searchIcon = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
-                                       style: .plain,
-                                       target: self,
-                                       action: #selector(handleSearch))
-    let notiIcon = UIBarButtonItem(image: UIImage(systemName: "flame"),
-                                     style: .plain,
-                                     target: self,
-                                     action: #selector(handleNoti))
-    let settingIcon = UIBarButtonItem(image: UIImage(systemName: "gearshape"),
-                                        style: .plain,
-                                        target: self,
-                                        action: #selector(handleSeting))
+    let searchIcon = UIBarButtonItem(
+      image: UIImage(systemName: "magnifyingglass"),
+      style: .plain,
+      target: self,
+      action: #selector(handleSearch)
+    )
     
     navigationItem.leftBarButtonItem = searchIcon
-    navigationItem.rightBarButtonItems = [settingIcon, notiIcon]
+  }
+  
+  fileprivate func configureGuestUI() {
+
+    let settingIcon = UIBarButtonItem(
+      title: nil,
+      image: UIImage(systemName: "gearshape"),
+      primaryAction: nil,
+      menu: createGuestMenu()
+    )
+    
+    navigationItem.rightBarButtonItems = [settingIcon]
+  }
+  
+  func configureManagerUI(withUser user: User) {
+    
+    let notiIcon = UIBarButtonItem(
+      image: UIImage(systemName: "flame"),
+      style: .plain,
+      target: self,
+      action: #selector(self.handleNoti)
+    )
+
+    let settingIcon = UIBarButtonItem(
+      title: nil,
+      image: UIImage(systemName: "gearshape"),
+      primaryAction: nil,
+      menu: createManagerMenu(user)
+    )
+
+    self.navigationItem.rightBarButtonItems = [settingIcon, notiIcon]
   }
   
   fileprivate func configureUI() {
@@ -107,6 +132,80 @@ class MainController: UIViewController {
     pagingVC.selectedFont = UIFont(name: "NotoSansKR-Regular", size: 13)!
     pagingVC.textColor = .systemGray
     pagingVC.selectedTextColor = .black
+  }
+}
+
+// MARK: - UIMenu
+
+extension MainController {
+  
+  func createGuestMenu() -> UIMenu {
+    let logInAction = UIAction(
+      title: "관리자 모드",
+      image: UIImage(systemName: "person.fill.questionmark")
+    ) { _ in
+      AuthService.logUserIn(
+        withEmail: self.email,
+        password: self.password
+      ) { result, error in
+        if let error = error {
+          print("DEBUG: Failed to log user in \(error.localizedDescription)")
+          return
+        }
+        self.viewWillAppear(true)
+      }
+    }
+    
+    let settingAction = UIAction(
+      title: "설정",
+      image: UIImage(systemName: "gearshape")
+    ) { _ in
+      let controller = SettingController()
+      self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    return UIMenu(
+      title: "",
+      children: [logInAction, settingAction]
+    )
+  }
+  
+  func createManagerMenu(_ user: User) -> UIMenu {
+    
+    let profileEditAction = UIAction(
+      title: "프로필 편집",
+      image: UIImage(systemName: "person.text.rectangle")
+    ) { _ in
+      let editProfileController = EditProfileController()
+      self.present(editProfileController, animated: true, completion: nil)
+    }
+    
+    let settingAction = UIAction(
+      title: "설정",
+      image: UIImage(systemName: "gearshape")
+    ) { _ in
+      let controller = SettingController()
+      self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    let logoutAction = UIAction(
+      title: "로그아웃",
+      image: UIImage(systemName: "figure.wave"),
+      attributes: .destructive
+    ) { _ in
+      do {
+        try Auth.auth().signOut()
+        self.user = nil
+        self.viewWillAppear(true)
+      } catch {
+        print("DEBUG: Failed to Sign out")
+      }
+    }
+    
+    return UIMenu(
+      title: "\(user.email)",
+      children: [profileEditAction, settingAction, logoutAction]
+    )
   }
 }
 
