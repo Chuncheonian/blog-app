@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import Firebase
 import Parchment
 
 class MainController: UIViewController {
@@ -20,6 +22,23 @@ class MainController: UIViewController {
     super.viewDidLoad()
     configureNavi()
     configureUI()
+    checkIfUserIsLoggedIn()
+  }
+  
+  // MARK: - API
+  
+  func checkIfUserIsLoggedIn() {
+    if Auth.auth().currentUser == nil {
+      // Auth.auth()가 global Queue로 돌기 때문에 mainQueue로 빼줌
+      print(1123)
+//      DispatchQueue.main.async {
+//        let controller = LoginController()
+//        controller.delegate = self
+//        let nav = UINavigationController(rootViewController: controller)
+//        nav.modalPresentationStyle = .fullScreen
+//        self.present(nav, animated: true, completion: nil)
+//      }
+    }
   }
   
   // MARK: - Actions
@@ -67,6 +86,7 @@ class MainController: UIViewController {
     profile.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
     profile.setHeight(100)
 
+    // PagingViewController
     let viewControllers = [FeedController(), IntroController()]
     let pagingVC = PagingViewController(viewControllers: viewControllers)
     addChild(pagingVC)
