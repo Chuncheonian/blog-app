@@ -11,12 +11,10 @@ struct UserService {
   
   static func fetchUser(completion: @escaping(User) -> Void) {
     
-    guard let uid = Auth.auth().currentUser?.uid else { return }
-
-    Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
-        guard let dictionary = snapshot?.data() else { return }
-        let user = User(dictionary: dictionary)
-        completion(user)
+    Firestore.firestore().collection("users").document("shR9jVbX5vdN6RDAJ8CchdJwfko2").getDocument { snapshot, error in
+      guard let dictionary = snapshot?.data() else { return }
+      let user = User(dictionary: dictionary)
+      completion(user)
     }
-}
+  }
 }

@@ -19,13 +19,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window = UIWindow(windowScene: scene)
     
     // Login 가정
-    AuthService.logUserIn(withEmail: "admin@gmail.com", password: "123456") { result, error in
-      if let error = error {
-        print("DEBUG: Failed to log user in \(error.localizedDescription)")
-        return
-      }
-      
-      self.window?.rootViewController = UINavigationController(rootViewController: MainController())
+//    AuthService.logUserIn(withEmail: "admin@gmail.com", password: "123456") { result, error in
+//      if let error = error {
+//        print("DEBUG: Failed to log user in \(error.localizedDescription)")
+//        return
+//      }
+//      UserService.fetchUser { user in
+//        self.window?.rootViewController = UINavigationController(rootViewController: MainController(user: user))
+//        self.window?.makeKeyAndVisible()
+//      }
+//    }
+    
+    // Login 가정없는 정상적인 방법
+    UserService.fetchUser { user in
+      self.window?.rootViewController = UINavigationController(rootViewController: MainController(user: user))
       self.window?.makeKeyAndVisible()
     }
     

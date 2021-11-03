@@ -7,10 +7,13 @@
 
 import UIKit
 
+private let reuseIdentifier = "PostCell"
+
 class SettingController: UIViewController {
   
   // MARK: - Lifecycle
   override func viewDidLoad() {
+    
     super.viewDidLoad()
     navigationItem.title = "설정"
     view.backgroundColor = .white

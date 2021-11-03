@@ -17,6 +17,9 @@
 		D571A3D7272FAF8100294032 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571A3D6272FAF8100294032 /* User.swift */; };
 		D571A3D9272FF31B00294032 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571A3D8272FF31B00294032 /* SettingController.swift */; };
 		D571A3DB272FF57A00294032 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571A3DA272FF57A00294032 /* EditProfileController.swift */; };
+		D571A3DF27300E5000294032 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571A3DE27300E4F00294032 /* ImageUploader.swift */; };
+		D571A3E22730130C00294032 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571A3E12730130C00294032 /* EditProfileViewModel.swift */; };
+		D571A3E8273016BA00294032 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3E7273016BA00294032 /* Kingfisher */; };
 		D573B376272F804000FFD11F /* Parchment in Frameworks */ = {isa = PBXBuildFile; productRef = D573B375272F804000FFD11F /* Parchment */; };
 		D573B37B272FA7A700FFD11F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D573B37A272FA7A700FFD11F /* GoogleService-Info.plist */; };
 		D584FB63272D3491008C4653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB62272D3491008C4653 /* AppDelegate.swift */; };
@@ -27,10 +30,12 @@
 		D584FB6F272D3492008C4653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D584FB6D272D3492008C4653 /* LaunchScreen.storyboard */; };
 		D584FB77272D35C5008C4653 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D584FB76272D35C5008C4653 /* README.md */; };
 		D584FB85272D3AD1008C4653 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB84272D3AD0008C4653 /* MainController.swift */; };
-		D584FB89272D411C008C4653 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB88272D411C008C4653 /* Profile.swift */; };
+		D584FB89272D411C008C4653 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB88272D411C008C4653 /* ProfileView.swift */; };
 		D584FB8B272D41A3008C4653 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D584FB8A272D41A3008C4653 /* Extension.swift */; };
 		D584FB91272D5AE7008C4653 /* Cera Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D584FB90272D5AE7008C4653 /* Cera Pro Bold.otf */; };
-		D5E3B6B8272E8B5900F06612 /* ViewModel in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6B7272E8B5900F06612 /* ViewModel */; };
+		D5CBA31A2732C60200730B9A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D5CBA3192732C60200730B9A /* IQKeyboardManagerSwift */; };
+		D5CBA31C2732E1BF00730B9A /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CBA31B2732E1BF00730B9A /* ProfileViewModel.swift */; };
+		D5CBA3202733116B00730B9A /* IntroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CBA31F2733116B00730B9A /* IntroViewModel.swift */; };
 		D5E3B6BF272E952900F06612 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E3B6BE272E952900F06612 /* FeedController.swift */; };
 		D5E3B6C1272E954F00F06612 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E3B6C0272E954F00F06612 /* IntroController.swift */; };
 		D5E3B6C3272E9BFD00F06612 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6C2272E9BFD00F06612 /* NotoSansKR-Light.otf */; };
@@ -45,6 +50,8 @@
 		D571A3D6272FAF8100294032 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D571A3D8272FF31B00294032 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		D571A3DA272FF57A00294032 /* EditProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
+		D571A3DE27300E4F00294032 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		D571A3E12730130C00294032 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		D573B37A272FA7A700FFD11F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D584FB5F272D3491008C4653 /* blog-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "blog-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D584FB62272D3491008C4653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,10 +63,11 @@
 		D584FB70272D3492008C4653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D584FB76272D35C5008C4653 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D584FB84272D3AD0008C4653 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		D584FB88272D411C008C4653 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		D584FB88272D411C008C4653 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		D584FB8A272D41A3008C4653 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D584FB90272D5AE7008C4653 /* Cera Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cera Pro Bold.otf"; sourceTree = "<group>"; };
-		D5E3B6B7272E8B5900F06612 /* ViewModel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModel; sourceTree = "<group>"; };
+		D5CBA31B2732E1BF00730B9A /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		D5CBA31F2733116B00730B9A /* IntroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewModel.swift; sourceTree = "<group>"; };
 		D5E3B6BE272E952900F06612 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		D5E3B6C0272E954F00F06612 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		D5E3B6C2272E9BFD00F06612 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
@@ -72,6 +80,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5CBA31A2732C60200730B9A /* IQKeyboardManagerSwift in Frameworks */,
+				D571A3E8273016BA00294032 /* Kingfisher in Frameworks */,
 				D571A3CF272FA9B700294032 /* FirebaseMessaging in Frameworks */,
 				D573B376272F804000FFD11F /* Parchment in Frameworks */,
 				D571A3CB272FA9B700294032 /* FirebaseAuth in Frameworks */,
@@ -83,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D571A3E0273012FB00294032 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D5CBA31B2732E1BF00730B9A /* ProfileViewModel.swift */,
+				D5CBA31F2733116B00730B9A /* IntroViewModel.swift */,
+				D571A3E12730130C00294032 /* EditProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		D584FB56272D3491008C4653 = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +125,7 @@
 			children = (
 				D584FB78272D381A008C4653 /* Model */,
 				D584FB7D272D3869008C4653 /* View */,
-				D5E3B6B7272E8B5900F06612 /* ViewModel */,
+				D571A3E0273012FB00294032 /* ViewModel */,
 				D584FB7F272D387A008C4653 /* Controller */,
 				D584FB81272D3894008C4653 /* API */,
 				D584FB80272D388C008C4653 /* Util */,
@@ -132,7 +152,7 @@
 		D584FB7D272D3869008C4653 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D584FB88272D411C008C4653 /* Profile.swift */,
+				D584FB88272D411C008C4653 /* ProfileView.swift */,
 				D50A1179272EE596008FEA79 /* PostCell.swift */,
 			);
 			path = View;
@@ -144,8 +164,8 @@
 				D584FB84272D3AD0008C4653 /* MainController.swift */,
 				D5E3B6BE272E952900F06612 /* FeedController.swift */,
 				D5E3B6C0272E954F00F06612 /* IntroController.swift */,
-				D571A3D8272FF31B00294032 /* SettingController.swift */,
 				D571A3DA272FF57A00294032 /* EditProfileController.swift */,
+				D571A3D8272FF31B00294032 /* SettingController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,6 +184,7 @@
 			children = (
 				D571A3D2272FAB8900294032 /* AuthService.swift */,
 				D571A3D4272FAF3400294032 /* UserService.swift */,
+				D571A3DE27300E4F00294032 /* ImageUploader.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -201,6 +222,8 @@
 				D571A3CC272FA9B700294032 /* FirebaseFirestore */,
 				D571A3CE272FA9B700294032 /* FirebaseMessaging */,
 				D571A3D0272FA9B700294032 /* FirebaseStorage */,
+				D571A3E7273016BA00294032 /* Kingfisher */,
+				D5CBA3192732C60200730B9A /* IQKeyboardManagerSwift */,
 			);
 			productName = "blog-app";
 			productReference = D584FB5F272D3491008C4653 /* blog-app.app */;
@@ -233,6 +256,8 @@
 			packageReferences = (
 				D573B374272F804000FFD11F /* XCRemoteSwiftPackageReference "Parchment" */,
 				D571A3C9272FA9B700294032 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D571A3E6273016BA00294032 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				D5CBA3182732C60200730B9A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = D584FB60272D3491008C4653 /* Products */;
 			projectDirPath = "";
@@ -257,7 +282,6 @@
 				D584FB77272D35C5008C4653 /* README.md in Resources */,
 				D573B37B272FA7A700FFD11F /* GoogleService-Info.plist in Resources */,
 				D584FB6A272D3491008C4653 /* Main.storyboard in Resources */,
-				D5E3B6B8272E8B5900F06612 /* ViewModel in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,14 +293,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D584FB67272D3491008C4653 /* ViewController.swift in Sources */,
-				D584FB89272D411C008C4653 /* Profile.swift in Sources */,
+				D584FB89272D411C008C4653 /* ProfileView.swift in Sources */,
+				D571A3DF27300E5000294032 /* ImageUploader.swift in Sources */,
 				D5E3B6C1272E954F00F06612 /* IntroController.swift in Sources */,
 				D584FB63272D3491008C4653 /* AppDelegate.swift in Sources */,
 				D584FB8B272D41A3008C4653 /* Extension.swift in Sources */,
+				D5CBA3202733116B00730B9A /* IntroViewModel.swift in Sources */,
 				D584FB65272D3491008C4653 /* SceneDelegate.swift in Sources */,
 				D571A3D5272FAF3400294032 /* UserService.swift in Sources */,
+				D571A3E22730130C00294032 /* EditProfileViewModel.swift in Sources */,
 				D584FB85272D3AD1008C4653 /* MainController.swift in Sources */,
 				D571A3D7272FAF8100294032 /* User.swift in Sources */,
+				D5CBA31C2732E1BF00730B9A /* ProfileViewModel.swift in Sources */,
 				D571A3DB272FF57A00294032 /* EditProfileController.swift in Sources */,
 				D571A3D3272FAB8900294032 /* AuthService.swift in Sources */,
 				D5E3B6BF272E952900F06612 /* FeedController.swift in Sources */,
@@ -511,12 +539,28 @@
 				minimumVersion = 8.0.0;
 			};
 		};
+		D571A3E6273016BA00294032 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		D573B374272F804000FFD11F /* XCRemoteSwiftPackageReference "Parchment" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rechsteiner/Parchment";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 3.0.0;
+			};
+		};
+		D5CBA3182732C60200730B9A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -542,10 +586,20 @@
 			package = D571A3C9272FA9B700294032 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
 		};
+		D571A3E7273016BA00294032 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D571A3E6273016BA00294032 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		D573B375272F804000FFD11F /* Parchment */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D573B374272F804000FFD11F /* XCRemoteSwiftPackageReference "Parchment" */;
 			productName = Parchment;
+		};
+		D5CBA3192732C60200730B9A /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D5CBA3182732C60200730B9A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

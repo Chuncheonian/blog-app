@@ -7,22 +7,25 @@
 
 import UIKit
 
-class Profile: UIView {
+class ProfileView: UIView {
   
   // MARK: - Properties
+  
+  var viewModel: ProfileViewModel? {
+    didSet { updateUI() }
+  }
+  
   private let profileImageView: UIImageView = {
     let iv = UIImageView()
     iv.contentMode = .scaleAspectFill
     iv.clipsToBounds = true
     iv.backgroundColor = .lightGray
-    iv.image = UIImage(named: "venom-7")
     return iv
   }()
   
   private let nameLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont(name: "Cera Pro Bold", size: 22)
-    label.text = "Dongyoung Kwon"
     return label
   }()
   
@@ -62,20 +65,7 @@ class Profile: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    
-    addSubview(profileImageView)
-    profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 13, paddingLeft: 33)
-    profileImageView.setDimensions(height: 70, width: 70)
-    profileImageView.layer.cornerRadius = 70 / 2
-        
-    addSubview(nameLabel)
-    nameLabel.anchor(top: topAnchor, left: profileImageView.rightAnchor, paddingTop: 16, paddingLeft: 12)
-    
-    let socialBtnStack = UIStackView(arrangedSubviews: [githubButton, facebookButton, instaButton, emailButton])
-    socialBtnStack.axis = .horizontal
-    socialBtnStack.spacing = 12
-    addSubview(socialBtnStack)
-    socialBtnStack.anchor(top: nameLabel.bottomAnchor, left: profileImageView.rightAnchor, paddingTop: 14, paddingLeft: 12)
+    configure()
   }
   
   required init?(coder: NSCoder) {
@@ -86,5 +76,29 @@ class Profile: UIView {
   
   @objc func handleSocialBtn() {
     print("DEBUG: Clicked Social Button.")
+  }
+  
+  // MARK: - Helpers
+  
+  fileprivate func configure() {
+    addSubview(profileImageView)
+    profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 13, paddingLeft: 33)
+    profileImageView.setDimensions(height: 70, width: 70)
+    profileImageView.layer.cornerRadius = 70 / 2
+    
+    addSubview(nameLabel)
+    nameLabel.anchor(top: topAnchor, left: profileImageView.rightAnchor, paddingTop: 16, paddingLeft: 12)
+    
+    let socialBtnStack = UIStackView(arrangedSubviews: [githubButton, facebookButton, instaButton, emailButton])
+    socialBtnStack.axis = .horizontal
+    socialBtnStack.spacing = 12
+    addSubview(socialBtnStack)
+    socialBtnStack.anchor(top: nameLabel.bottomAnchor, left: profileImageView.rightAnchor, paddingTop: 14, paddingLeft: 12)
+  }
+  
+  fileprivate func updateUI() {
+    guard let viewModel = viewModel else { return }
+    profileImageView.kf.setImage(with: viewModel.profileImageURL)
+    nameLabel.text = viewModel.name
   }
 }
