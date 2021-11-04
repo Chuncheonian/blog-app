@@ -44,7 +44,7 @@ class PostController: UIViewController {
     label.font = UIFont(name: "NotoSansKR-Regular", size: 15)
     return label
   }()
-
+  
   
   // MARK: - Lifecycle
   
@@ -60,9 +60,22 @@ class PostController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
+    navigationController?.isToolbarHidden = false
     configureScrollView()
     configureViews()
+    configureToolBar()
   }
+  
+  // MARK: - Action
+  
+  @objc func didTapCommentBtn() {
+    print("DEBUG: didTapCommentBtn")
+  }
+  
+  @objc func didTapEllipsisBtn() {
+    print("DEBUG: didTapEllipsisBtn")
+  }
+  
   
   // MARK: - Helpers
   
@@ -101,7 +114,7 @@ class PostController: UIViewController {
 
     if post.imageURL != "" {
       contentView.addSubview(imageView)
-      imageView.anchor(top: postTimeLabel.bottomAnchor, paddingTop: 30)
+      imageView.anchor(top: postTimeLabel.bottomAnchor, paddingTop: 20)
       let width = view.frame.width - 60
       imageView.setDimensions(height: width, width: width)
       imageView.centerX(inView: contentView)
@@ -115,10 +128,31 @@ class PostController: UIViewController {
       contentView.addSubview(contentLabel)
       contentLabel.anchor(top: postTimeLabel.bottomAnchor, left: titleLabel.leftAnchor,
                            bottom: contentView.bottomAnchor,
-                           right: titleLabel.rightAnchor, paddingTop: 15)
+                           right: titleLabel.rightAnchor, paddingTop: 20)
     }
 
     contentLabel.text = post.content
+  }
+  
+  fileprivate func configureToolBar() {
+    let commentBtn = UIBarButtonItem(
+      image: UIImage(systemName: "bubble.left.and.bubble.right"),
+      style: .plain,
+      target: self,
+      action: #selector(didTapCommentBtn)
+    )
+    
+    let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    
+    let ellipsisBtn = UIBarButtonItem(
+      image: UIImage(systemName: "ellipsis"),
+      style: .plain,
+      target: self,
+      action: #selector(didTapEllipsisBtn)
+    )
+    
+    navigationController?.toolbar.tintColor = .black
+    self.setToolbarItems([flexSpace, commentBtn, flexSpace, flexSpace, flexSpace, flexSpace, flexSpace, ellipsisBtn, flexSpace], animated: true)
   }
   
 }
