@@ -15,6 +15,7 @@ class PostController: UIViewController {
   private let scrollView = UIScrollView()
   private let contentView = UIView()
   private var post: Post
+  private var user: User
   
   private lazy var titleLabel: UILabel = {
     let label = UILabel()
@@ -48,8 +49,9 @@ class PostController: UIViewController {
   
   // MARK: - Lifecycle
   
-  init(post: Post) {
+  init(post: Post, user: User) {
     self.post = post
+    self.user = user
     super.init(nibName: nil, bundle: nil)
   }
   
@@ -70,10 +72,6 @@ class PostController: UIViewController {
   
   @objc func didTapCommentBtn() {
     print("DEBUG: didTapCommentBtn")
-  }
-  
-  @objc func didTapEllipsisBtn() {
-    print("DEBUG: didTapEllipsisBtn")
   }
   
   
@@ -143,16 +141,61 @@ class PostController: UIViewController {
     )
     
     let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+      let logInAction = UIAction(
+        title: "편집",
+        image: UIImage(systemName: "scissors")
+      ) { _ in
+        let controller = EditPostController()
+        controller.delegate = self
+        controller.viewModel = EditPostViewModel(user: self.user, post: self.post)
+        let nav = UINavigationController(rootViewController: controller)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true, completion: nil)
+      }
+    
+      let settingAction = UIAction(
+        title: "삭제",
+        image: UIImage(systemName: "exclamationmark.triangle"),
+        attributes: .destructive
+      ) { _ in
+        print("DEBUG: 삭제버튼")
+      }
     
     let ellipsisBtn = UIBarButtonItem(
+      title: "",
       image: UIImage(systemName: "ellipsis"),
-      style: .plain,
-      target: self,
-      action: #selector(didTapEllipsisBtn)
+      primaryAction: nil,
+      menu: UIMenu(title: "", children: [logInAction, settingAction])
     )
     
     navigationController?.toolbar.tintColor = .black
     self.setToolbarItems([flexSpace, commentBtn, flexSpace, flexSpace, flexSpace, flexSpace, flexSpace, ellipsisBtn, flexSpace], animated: true)
   }
+  
+  fileprivate func updateUI() {
+    titleLabel.text = post.title
+    postTimeLabel.text = "\(TimestampString.dateString(post.timestamp)) 전"
+    imageView.kf.setImage(with: URL(string: post.imageURL))
+    contentLabel.text = post.content
+  }
+}
+
+// MARK: - EditPostControllerDelegte
+
+extension PostController: EditPostControllerDelegte {
+  func didFinishEditingPost(_ controller: EditPostController) {
+    controller.dismiss(animated: true, completion:  nil)
+    
+    self.showLoader(true)
+    PostService.fetchPost(post: post) { post in
+      DispatchQueue.main.async {
+        self.post = post
+        self.updateUI()
+        self.showLoader(false)
+      }
+    }
+  }
+  
   
 }

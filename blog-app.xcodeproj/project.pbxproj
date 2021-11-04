@@ -16,6 +16,8 @@
 		D518560727340D450094E467 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560627340D450094E467 /* PostViewModel.swift */; };
 		D5185609273417F50094E467 /* TimestampString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5185608273417F50094E467 /* TimestampString.swift */; };
 		D518560B27341F280094E467 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560A27341F280094E467 /* PostController.swift */; };
+		D51856102734551B0094E467 /* EditPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560F2734551B0094E467 /* EditPostController.swift */; };
+		D5185612273455F50094E467 /* EditPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5185611273455F50094E467 /* EditPostViewModel.swift */; };
 		D571A3CB272FA9B700294032 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CA272FA9B700294032 /* FirebaseAuth */; };
 		D571A3CD272FA9B700294032 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CC272FA9B700294032 /* FirebaseFirestore */; };
 		D571A3CF272FA9B700294032 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CE272FA9B700294032 /* FirebaseMessaging */; };
@@ -61,6 +63,8 @@
 		D518560627340D450094E467 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D5185608273417F50094E467 /* TimestampString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampString.swift; sourceTree = "<group>"; };
 		D518560A27341F280094E467 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		D518560F2734551B0094E467 /* EditPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostController.swift; sourceTree = "<group>"; };
+		D5185611273455F50094E467 /* EditPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewModel.swift; sourceTree = "<group>"; };
 		D571A3D2272FAB8900294032 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D571A3D4272FAF3400294032 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D571A3D6272FAF8100294032 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			children = (
 				D5CBA31B2732E1BF00730B9A /* ProfileViewModel.swift */,
 				D518560627340D450094E467 /* PostViewModel.swift */,
+				D5185611273455F50094E467 /* EditPostViewModel.swift */,
 				D571A3E12730130C00294032 /* EditProfileViewModel.swift */,
 				D5CBA31F2733116B00730B9A /* IntroViewModel.swift */,
 			);
@@ -185,6 +190,7 @@
 				D5E3B6BE272E952900F06612 /* FeedController.swift */,
 				D518560A27341F280094E467 /* PostController.swift */,
 				D5B622D12733B20B00746565 /* UploadPostController.swift */,
+				D518560F2734551B0094E467 /* EditPostController.swift */,
 				D5E3B6C0272E954F00F06612 /* IntroController.swift */,
 				D571A3DA272FF57A00294032 /* EditProfileController.swift */,
 				D571A3D8272FF31B00294032 /* SettingController.swift */,
@@ -320,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D51856102734551B0094E467 /* EditPostController.swift in Sources */,
 				D518560727340D450094E467 /* PostViewModel.swift in Sources */,
 				D584FB67272D3491008C4653 /* ViewController.swift in Sources */,
 				D5B622D22733B20C00746565 /* UploadPostController.swift in Sources */,
@@ -345,6 +352,7 @@
 				D571A3D3272FAB8900294032 /* AuthService.swift in Sources */,
 				D5E3B6BF272E952900F06612 /* FeedController.swift in Sources */,
 				D571A3D9272FF31B00294032 /* SettingController.swift in Sources */,
+				D5185612273455F50094E467 /* EditPostViewModel.swift in Sources */,
 				D50A117A272EE596008FEA79 /* PostCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

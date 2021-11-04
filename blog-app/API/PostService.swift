@@ -25,7 +25,7 @@ struct PostService {
                   "uuid": uuid,
                   "ownerName": user.name
                   ] as [String: Any]
-      COLLECTION_POSTS.addDocument(data: data, completion: completion)
+      COLLECTION_POSTS.document(uuid).setData(data, completion: completion)
     } else {
       guard let image = image else { return}
 
@@ -39,8 +39,48 @@ struct PostService {
                     "uuid": uuid,
                     "ownerName": user.name
                     ] as [String: Any]
-        COLLECTION_POSTS.addDocument(data: data, completion: completion)
+        COLLECTION_POSTS.document(uuid).setData(data, completion: completion)
       }
+    }
+  }
+  
+  static func updatePost(title: String, content: String, image: UIImage?, user: User, post: Post, completion: @escaping(FirestoreCompletion)) {
+
+    if image == nil {
+      let data = ["title": title,
+                  "content": content,
+                  "imageURL": post.imageURL,
+                  "commentCount": 0,
+                  "timestamp": Timestamp(date: Date()),
+                  "ownerUID": user.uid,
+                  "uuid": post.uuid,
+                  "ownerName": user.name
+                  ] as [String: Any]
+      COLLECTION_POSTS.document(post.uuid).setData(data, completion: completion)
+    } else {
+      guard let image = image else { return}
+
+      ImageUploader.uploadPostImage(image: image, uuid: post.uuid) { imageURL in
+        let data = ["title": title,
+                    "content": content,
+                    "imageURL": imageURL,
+                    "commentCount": 0,
+                    "timestamp": Timestamp(date: Date()),
+                    "ownerUID": user.uid,
+                    "uuid": post.uuid,
+                    "ownerName": user.name
+                    ] as [String: Any]
+        COLLECTION_POSTS.document(post.uuid).setData(data, completion: completion)
+      }
+    }
+  }
+  
+  static func fetchPost(post: Post, completion: @escaping(Post) -> Void) {
+
+    COLLECTION_POSTS.document(post.uuid).getDocument { snapshot, error in
+      guard let dictionary = snapshot?.data() else { return }
+      let post = Post(postID: post.postID, dictionary: dictionary)
+      completion(post)
     }
   }
     
@@ -51,7 +91,7 @@ struct PostService {
       completion(posts)
     }
   }
-    
+  
 //  static func fetchPosts(forUser uid: String, completion: @escaping([Post]) -> Void) {
 //      let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid)
 //
