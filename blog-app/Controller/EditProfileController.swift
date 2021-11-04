@@ -90,6 +90,8 @@ class EditProfileController: UIViewController {
     guard let name = nameTextField.text else { return }
     guard let biography = bioTextView.text else { return }
     
+    self.showLoader(true)
+    
     // 사진 미 변경
     if selectedProfileImage == nil {
       let data: [String: Any] = [
@@ -99,7 +101,7 @@ class EditProfileController: UIViewController {
         "profileImageURL": viewModel.user.profileImageURL,
         "uid": viewModel.user.uid
       ]
-      Firestore.firestore().collection("users").document(viewModel.user.uid).setData(data, completion: nil)
+      COLLECTION_USERS.document(viewModel.user.uid).setData(data, completion: nil)
     } else {  // 사진 변경
       guard let selectedProfileImage = selectedProfileImage else { return }
       ImageUploader.uploadImage(image: selectedProfileImage, uid: viewModel.user.uid) { imageURL in
@@ -110,10 +112,16 @@ class EditProfileController: UIViewController {
           "profileImageURL": imageURL,
           "uid": viewModel.user.uid
         ]
-        Firestore.firestore().collection("users").document(viewModel.user.uid).setData(data, completion: nil)
+        COLLECTION_USERS.document(viewModel.user.uid).setData(data) { error in
+          if let error = error {
+            print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
+            return
+          }
+          self.showLoader(false)
+          self.delegate?.didChangeUser(self)
+        }
       }
     }
-    self.delegate?.didChangeUser(self)
   }
   
   @objc func handleProfilePhotoSelect() {
