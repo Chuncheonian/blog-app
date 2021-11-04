@@ -43,11 +43,11 @@ class EditProfileController: UIViewController {
   }()
   
   private lazy var nameTextField: UITextField = {
-    let tv = UITextField()
-    tv.setDimensions(height: 40, width: 300)
-    tv.placeholder = "이름을 입력해주세요."
-    tv.font = UIFont(name: "Cera Pro Bold", size: 15)
-    return tv
+    let tf = UITextField()
+    tf.setDimensions(height: 40, width: 300)
+    tf.placeholder = "이름을 입력해주세요."
+    tf.font = UIFont(name: "Cera Pro Bold", size: 15)
+    return tf
   }()
   
   private let bioLabel: UILabel = {

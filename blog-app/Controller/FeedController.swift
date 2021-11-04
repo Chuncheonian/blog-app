@@ -55,8 +55,9 @@ class FeedController: UITableViewController {
   
   @objc func didTapFloatingBtn() {
     let controller = UploadPostController()
-    // controller.modalPresentationStyle = .fullScreen
-    self.present(controller, animated: true, completion: nil)
+    let nav = UINavigationController(rootViewController: controller)
+    nav.modalPresentationStyle = .fullScreen
+    self.present(nav, animated: true, completion: nil)
   }
 }
 
