@@ -18,8 +18,9 @@ struct PostService {
     if image == nil {
       let data = ["title": title,
                   "content": content,
-                  "timestamp": Timestamp(date: Date()),
                   "imageURL": "",
+                  "commentCount": 0,
+                  "timestamp": Timestamp(date: Date()),
                   "ownerUID": user.uid,
                   "uuid": uuid,
                   "ownerName": user.name
@@ -31,8 +32,9 @@ struct PostService {
       ImageUploader.uploadPostImage(image: image, uuid: uuid) { imageURL in
         let data = ["title": title,
                     "content": content,
-                    "timestamp": Timestamp(date: Date()),
                     "imageURL": imageURL,
+                    "commentCount": 0,
+                    "timestamp": Timestamp(date: Date()),
                     "ownerUID": user.uid,
                     "uuid": uuid,
                     "ownerName": user.name
@@ -45,7 +47,7 @@ struct PostService {
   static func fetchPosts(completion: @escaping([Post]) -> Void) {
     COLLECTION_POSTS.order(by: "timestamp", descending: true).getDocuments { snapshot, error in
       guard let documents = snapshot?.documents else { return }
-      let posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data()) })
+      let posts = documents.map({ Post(postID: $0.documentID, dictionary: $0.data()) })
       completion(posts)
     }
   }

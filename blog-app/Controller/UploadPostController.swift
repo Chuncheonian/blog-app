@@ -9,7 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 
 protocol UploadPostControllerDelegte: AnyObject {
-    func didUploadPost(_ controller: UploadPostController)
+    func didFinishUploadingPost(_ controller: UploadPostController)
 }
 
 class UploadPostController: UIViewController {
@@ -90,14 +90,17 @@ class UploadPostController: UIViewController {
     guard let title = titleField.text else { return }
     guard let content = contentView.text else { return }
     
+    self.showLoader(true)
+    
     PostService.uploadPost(title: title, content: content, image: selectedImage, user: user) { error in
+      self.showLoader(false)
       if let error = error {
         print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
         return
       }
-      self.dismiss(animated: true, completion: nil)
+
+      self.delegate?.didFinishUploadingPost(self)
     }
-//      self.delegate?.didUploadPost(self)
   }
   
   @objc func didTapDoneToolBtn() {

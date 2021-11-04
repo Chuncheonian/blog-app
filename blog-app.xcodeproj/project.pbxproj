@@ -12,6 +12,9 @@
 		D51855FC2733FC2E0094E467 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51855FB2733FC2E0094E467 /* Post.swift */; };
 		D51855FE2733FD700094E467 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51855FD2733FD700094E467 /* PostService.swift */; };
 		D51856002733FE790094E467 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51855FF2733FE790094E467 /* Constants.swift */; };
+		D518560527340C670094E467 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D518560427340C670094E467 /* JGProgressHUD */; };
+		D518560727340D450094E467 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560627340D450094E467 /* PostViewModel.swift */; };
+		D5185609273417F50094E467 /* TimestampString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5185608273417F50094E467 /* TimestampString.swift */; };
 		D571A3CB272FA9B700294032 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CA272FA9B700294032 /* FirebaseAuth */; };
 		D571A3CD272FA9B700294032 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CC272FA9B700294032 /* FirebaseFirestore */; };
 		D571A3CF272FA9B700294032 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CE272FA9B700294032 /* FirebaseMessaging */; };
@@ -54,6 +57,8 @@
 		D51855FB2733FC2E0094E467 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D51855FD2733FD700094E467 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		D51855FF2733FE790094E467 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D518560627340D450094E467 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = SOURCE_ROOT; };
+		D5185608273417F50094E467 /* TimestampString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampString.swift; sourceTree = "<group>"; };
 		D571A3D2272FAB8900294032 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D571A3D4272FAF3400294032 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D571A3D6272FAF8100294032 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 				D571A3E8273016BA00294032 /* Kingfisher in Frameworks */,
 				D571A3CF272FA9B700294032 /* FirebaseMessaging in Frameworks */,
 				D573B376272F804000FFD11F /* Parchment in Frameworks */,
+				D518560527340C670094E467 /* JGProgressHUD in Frameworks */,
 				D571A3CB272FA9B700294032 /* FirebaseAuth in Frameworks */,
 				D571A3D1272FA9B700294032 /* FirebaseStorage in Frameworks */,
 				D571A3CD272FA9B700294032 /* FirebaseFirestore in Frameworks */,
@@ -109,6 +115,7 @@
 				D5CBA31B2732E1BF00730B9A /* ProfileViewModel.swift */,
 				D5CBA31F2733116B00730B9A /* IntroViewModel.swift */,
 				D571A3E12730130C00294032 /* EditProfileViewModel.swift */,
+				D518560627340D450094E467 /* PostViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -189,6 +196,7 @@
 				D584FB8A272D41A3008C4653 /* Extension.swift */,
 				D51855F92733C6B10094E467 /* InputTextView.swift */,
 				D51855FF2733FE790094E467 /* Constants.swift */,
+				D5185608273417F50094E467 /* TimestampString.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 				D571A3D0272FA9B700294032 /* FirebaseStorage */,
 				D571A3E7273016BA00294032 /* Kingfisher */,
 				D5CBA3192732C60200730B9A /* IQKeyboardManagerSwift */,
+				D518560427340C670094E467 /* JGProgressHUD */,
 			);
 			productName = "blog-app";
 			productReference = D584FB5F272D3491008C4653 /* blog-app.app */;
@@ -273,6 +282,7 @@
 				D571A3C9272FA9B700294032 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				D571A3E6273016BA00294032 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				D5CBA3182732C60200730B9A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				D518560327340C670094E467 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = D584FB60272D3491008C4653 /* Products */;
 			projectDirPath = "";
@@ -307,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D518560727340D450094E467 /* PostViewModel.swift in Sources */,
 				D584FB67272D3491008C4653 /* ViewController.swift in Sources */,
 				D5B622D22733B20C00746565 /* UploadPostController.swift in Sources */,
 				D584FB89272D411C008C4653 /* ProfileView.swift in Sources */,
@@ -325,6 +336,7 @@
 				D584FB85272D3AD1008C4653 /* MainController.swift in Sources */,
 				D571A3D7272FAF8100294032 /* User.swift in Sources */,
 				D5CBA31C2732E1BF00730B9A /* ProfileViewModel.swift in Sources */,
+				D5185609273417F50094E467 /* TimestampString.swift in Sources */,
 				D571A3DB272FF57A00294032 /* EditProfileController.swift in Sources */,
 				D571A3D3272FAB8900294032 /* AuthService.swift in Sources */,
 				D5E3B6BF272E952900F06612 /* FeedController.swift in Sources */,
@@ -551,6 +563,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D518560327340C670094E467 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		D571A3C9272FA9B700294032 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -586,6 +606,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D518560427340C670094E467 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D518560327340C670094E467 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
 		D571A3CA272FA9B700294032 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D571A3C9272FA9B700294032 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -6,16 +6,19 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PostCell: UITableViewCell {
   
   // MARK: - Properties
   
+  var viewModel: PostViewModel? {
+    didSet { configure() }
+  }
+  
   private let image: UIImageView = {
     let iv = UIImageView()
-    iv.image = UIImage(named: "venom-7")
     iv.contentMode = .scaleToFill
-    iv.backgroundColor = .lightGray
     return iv
   }()
   
@@ -23,7 +26,6 @@ class PostCell: UITableViewCell {
     let label = UILabel()
     label.font = UIFont(name: "NotoSansKR-Medium", size: 15)
     label.numberOfLines = 2
-    label.text = "[Swift] 스위프트 언어의 특징과 이에 대한 사견"
     return label
   }()
   
@@ -31,14 +33,13 @@ class PostCell: UITableViewCell {
     let label = UILabel()
     label.font = UIFont(name: "NotoSansKR-Light", size: 12)
     label.numberOfLines = 2
-    label.text = "Xcode 13.2 베타 부터 지원한다고 합니다! Swift Concurrency를 한번 알아볼까요."
     return label
   }()
   
   private let postTimeLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont(name: "NotoSansKR-Regular", size: 11)
-    label.text = "2 days ago"
+//    label.text = "2 days ago"
     label.textColor = .lightGray
     return label
   }()
@@ -46,7 +47,7 @@ class PostCell: UITableViewCell {
   private let commentCountLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont(name: "NotoSansKR-Regular", size: 11)
-    label.text = "4개의 댓글"
+    // label.text = "4개의 댓글"
     label.textColor = .lightGray
     return label
   }()
@@ -67,14 +68,27 @@ class PostCell: UITableViewCell {
     contentLabel.anchor(top: titleLabel.bottomAnchor, left: titleLabel.leftAnchor, right: titleLabel.rightAnchor, paddingTop: 5)
     
     addSubview(postTimeLabel)
-    postTimeLabel.anchor(left: titleLabel.leftAnchor, bottom: bottomAnchor, paddingBottom: 15)
+//    postTimeLabel.anchor(top: contentLabel.bottomAnchor, left: titleLabel.leftAnchor, paddingTop: 8)
+     postTimeLabel.anchor(left: titleLabel.leftAnchor, bottom: bottomAnchor, paddingBottom: 10)
     
     addSubview(commentCountLabel)
-    commentCountLabel.anchor(left: postTimeLabel.rightAnchor, bottom: postTimeLabel.bottomAnchor, paddingLeft: 13)
+//    commentCountLabel.anchor(top: contentLabel.bottomAnchor, left: postTimeLabel.rightAnchor, paddingTop: 8, paddingLeft: 13)
+     commentCountLabel.anchor(left: postTimeLabel.rightAnchor, bottom: postTimeLabel.bottomAnchor, paddingLeft: 13)
     
   }
   
   required init?(coder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
+  
+  // MARK: - Helper
+  func configure() {
+    guard let viewModel = viewModel else { return }
+    image.kf.setImage(with: viewModel.imageURL)
+    titleLabel.text = viewModel.title
+    contentLabel.text = viewModel.content
+    postTimeLabel.text = viewModel.timestamp
+    commentCountLabel.text = viewModel.commentCount
+  }
+  
 }

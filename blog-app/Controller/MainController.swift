@@ -89,7 +89,7 @@ class MainController: UIViewController {
     addChild(pagingVC)
     view.addSubview(pagingVC.view)
     pagingVC.didMove(toParent: self)
-    pagingVC.view.anchor(top: profile.bottomAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor)
+    pagingVC.view.anchor(top: profile.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
     pagingVC.dataSource = self
     
     pagingVC.menuItemSize = .fixed(width: 45, height: 35)

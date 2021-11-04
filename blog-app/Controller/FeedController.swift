@@ -14,7 +14,9 @@ class FeedController: UITableViewController {
   // MARK: - Properties
   
   private var user: User
-  
+  private var posts = [Post]() {
+    didSet { tableView.reloadData() }
+  }
   
   private let floatingBtn: UIButton = {
     let btn = UIButton(type: .system)
@@ -43,8 +45,8 @@ class FeedController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.register(PostCell.self, forCellReuseIdentifier: reuseIdentifier)
-    tableView.rowHeight = 200
+    configure()
+    fetchPosts()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -63,13 +65,40 @@ class FeedController: UITableViewController {
     }
   }
   
+  // MARK: - API
+  
+  func fetchPosts() {
+    PostService.fetchPosts { posts in
+      self.posts = posts
+      self.tableView.refreshControl?.endRefreshing()
+      self.tableView.reloadData()
+    }
+  }
+  
   // MARK: - Action
   
   @objc func didTapFloatingBtn() {
     let controller = UploadPostController(user: user)
+    controller.delegate = self
     let nav = UINavigationController(rootViewController: controller)
     nav.modalPresentationStyle = .fullScreen
     self.present(nav, animated: true, completion: nil)
+  }
+  
+  @objc func handleRefresh() {
+    posts.removeAll()
+    fetchPosts()
+  }
+  
+  // MARK: - Helpers
+  
+  func configure() {
+    tableView.register(PostCell.self, forCellReuseIdentifier: reuseIdentifier)
+    tableView.rowHeight = 140
+    
+    let refresher = UIRefreshControl()
+    refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+    tableView.refreshControl = refresher
   }
 }
 
@@ -77,11 +106,21 @@ class FeedController: UITableViewController {
 
 extension FeedController {
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return posts.count
   }
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! PostCell
+    cell.viewModel = PostViewModel(post: posts[indexPath.row])
     return cell
+  }
+}
+
+// MARK: - UploadPostControllerDelegte
+
+extension FeedController: UploadPostControllerDelegte {
+  func didFinishUploadingPost(_ controller: UploadPostController) {
+    controller.dismiss(animated: true, completion:  nil)
+    self.handleRefresh()
   }
 }
