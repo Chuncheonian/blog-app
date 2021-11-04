@@ -15,6 +15,7 @@
 		D518560527340C670094E467 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D518560427340C670094E467 /* JGProgressHUD */; };
 		D518560727340D450094E467 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560627340D450094E467 /* PostViewModel.swift */; };
 		D5185609273417F50094E467 /* TimestampString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5185608273417F50094E467 /* TimestampString.swift */; };
+		D518560B27341F280094E467 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560A27341F280094E467 /* PostController.swift */; };
 		D571A3CB272FA9B700294032 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CA272FA9B700294032 /* FirebaseAuth */; };
 		D571A3CD272FA9B700294032 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CC272FA9B700294032 /* FirebaseFirestore */; };
 		D571A3CF272FA9B700294032 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CE272FA9B700294032 /* FirebaseMessaging */; };
@@ -59,6 +60,7 @@
 		D51855FF2733FE790094E467 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D518560627340D450094E467 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D5185608273417F50094E467 /* TimestampString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampString.swift; sourceTree = "<group>"; };
+		D518560A27341F280094E467 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		D571A3D2272FAB8900294032 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D571A3D4272FAF3400294032 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D571A3D6272FAF8100294032 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -113,9 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				D5CBA31B2732E1BF00730B9A /* ProfileViewModel.swift */,
-				D5CBA31F2733116B00730B9A /* IntroViewModel.swift */,
-				D571A3E12730130C00294032 /* EditProfileViewModel.swift */,
 				D518560627340D450094E467 /* PostViewModel.swift */,
+				D571A3E12730130C00294032 /* EditProfileViewModel.swift */,
+				D5CBA31F2733116B00730B9A /* IntroViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -181,9 +183,10 @@
 			children = (
 				D584FB84272D3AD0008C4653 /* MainController.swift */,
 				D5E3B6BE272E952900F06612 /* FeedController.swift */,
+				D518560A27341F280094E467 /* PostController.swift */,
+				D5B622D12733B20B00746565 /* UploadPostController.swift */,
 				D5E3B6C0272E954F00F06612 /* IntroController.swift */,
 				D571A3DA272FF57A00294032 /* EditProfileController.swift */,
-				D5B622D12733B20B00746565 /* UploadPostController.swift */,
 				D571A3D8272FF31B00294032 /* SettingController.swift */,
 			);
 			path = Controller;
@@ -326,6 +329,7 @@
 				D51855FE2733FD700094E467 /* PostService.swift in Sources */,
 				D51856002733FE790094E467 /* Constants.swift in Sources */,
 				D584FB63272D3491008C4653 /* AppDelegate.swift in Sources */,
+				D518560B27341F280094E467 /* PostController.swift in Sources */,
 				D51855FA2733C6B10094E467 /* InputTextView.swift in Sources */,
 				D584FB8B272D41A3008C4653 /* Extension.swift in Sources */,
 				D5CBA3202733116B00730B9A /* IntroViewModel.swift in Sources */,

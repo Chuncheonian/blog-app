@@ -116,6 +116,16 @@ extension FeedController {
   }
 }
 
+// MARK: - UITableViewDelegate
+
+extension FeedController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      tableView.deselectRow(at: indexPath, animated: true)
+      let controller = PostController(post: posts[indexPath.row])
+      navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
 // MARK: - UploadPostControllerDelegte
 
 extension FeedController: UploadPostControllerDelegte {

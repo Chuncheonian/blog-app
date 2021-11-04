@@ -39,7 +39,6 @@ class PostCell: UITableViewCell {
   private let postTimeLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont(name: "NotoSansKR-Regular", size: 11)
-//    label.text = "2 days ago"
     label.textColor = .lightGray
     return label
   }()
@@ -47,7 +46,6 @@ class PostCell: UITableViewCell {
   private let commentCountLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont(name: "NotoSansKR-Regular", size: 11)
-    // label.text = "4개의 댓글"
     label.textColor = .lightGray
     return label
   }()
