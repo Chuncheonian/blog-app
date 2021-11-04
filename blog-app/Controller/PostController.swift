@@ -8,10 +8,15 @@
 import UIKit
 import Kingfisher
 
+protocol PostControllerDelegte: AnyObject {
+    func didFinishDeletingPost(_ controller: PostController)
+}
+
 class PostController: UIViewController {
   
   // MARK: - Properties
   
+  weak var delegate: PostControllerDelegte?
   private let scrollView = UIScrollView()
   private let contentView = UIView()
   private var post: Post
@@ -159,7 +164,13 @@ class PostController: UIViewController {
         image: UIImage(systemName: "exclamationmark.triangle"),
         attributes: .destructive
       ) { _ in
-        print("DEBUG: 삭제버튼")
+        PostService.deletePost(post: self.post) { error in
+          if let error = error {
+            print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
+            return
+          }
+          self.delegate?.didFinishDeletingPost(self)
+        }
       }
     
     let ellipsisBtn = UIBarButtonItem(

@@ -122,6 +122,7 @@ extension FeedController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       tableView.deselectRow(at: indexPath, animated: true)
       let controller = PostController(post: posts[indexPath.row], user: user)
+      controller.delegate = self
       navigationController?.pushViewController(controller, animated: true)
     }
 }
@@ -131,6 +132,15 @@ extension FeedController {
 extension FeedController: UploadPostControllerDelegte {
   func didFinishUploadingPost(_ controller: UploadPostController) {
     controller.dismiss(animated: true, completion:  nil)
+    self.handleRefresh()
+  }
+}
+
+// MARK: - PostControllerDelegte
+
+extension FeedController: PostControllerDelegte {
+  func didFinishDeletingPost(_ controller: PostController) {
+    controller.navigationController?.popViewController(animated: true)
     self.handleRefresh()
   }
 }

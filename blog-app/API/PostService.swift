@@ -92,6 +92,10 @@ struct PostService {
     }
   }
   
+  static func deletePost(post: Post, completion: @escaping(FirestoreCompletion)) {
+    COLLECTION_POSTS.document(post.uuid).delete(completion: completion)
+  }
+  
 //  static func fetchPosts(forUser uid: String, completion: @escaping([Post]) -> Void) {
 //      let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid)
 //
