@@ -13,6 +13,9 @@ class FeedController: UITableViewController {
   
   // MARK: - Properties
   
+  private var user: User
+  
+  
   private let floatingBtn: UIButton = {
     let btn = UIButton(type: .system)
     btn.setDimensions(height: 60, width: 60)
@@ -28,6 +31,15 @@ class FeedController: UITableViewController {
 
   
   // MARK: - Lifecycle
+  
+  init(user: User) {
+    self.user = user
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -54,7 +66,7 @@ class FeedController: UITableViewController {
   // MARK: - Action
   
   @objc func didTapFloatingBtn() {
-    let controller = UploadPostController()
+    let controller = UploadPostController(user: user)
     let nav = UINavigationController(rootViewController: controller)
     nav.modalPresentationStyle = .fullScreen
     self.present(nav, animated: true, completion: nil)

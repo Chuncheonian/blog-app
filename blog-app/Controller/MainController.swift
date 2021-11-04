@@ -218,7 +218,7 @@ extension MainController: PagingViewControllerDataSource {
   
   func pagingViewController(_: PagingViewController, viewControllerAt index: Int) -> UIViewController {
     if index == 0 {
-      let feed = FeedController()
+      let feed = FeedController(user: user)
       return feed
     } else {
       intro.viewModel = IntroViewModel(user: user)

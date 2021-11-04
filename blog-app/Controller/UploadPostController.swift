@@ -8,10 +8,16 @@
 import UIKit
 import IQKeyboardManagerSwift
 
+protocol UploadPostControllerDelegte: AnyObject {
+    func didUploadPost(_ controller: UploadPostController)
+}
+
 class UploadPostController: UIViewController {
   
   // MARK: - Properties
   
+  private var user: User
+  weak var delegate: UploadPostControllerDelegte?
   private var selectedImage: UIImage?
   
   private lazy var imageView: UIImageView = {
@@ -59,6 +65,15 @@ class UploadPostController: UIViewController {
   
   // MARK: - Lifecycle
   
+  init(user: User) {
+    self.user = user
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     configure()
@@ -72,7 +87,17 @@ class UploadPostController: UIViewController {
   }
   
   @objc func didTapDone() {
-    self.dismiss(animated: true, completion: nil)
+    guard let title = titleField.text else { return }
+    guard let content = contentView.text else { return }
+    
+    PostService.uploadPost(title: title, content: content, image: selectedImage, user: user) { error in
+      if let error = error {
+        print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
+        return
+      }
+      self.dismiss(animated: true, completion: nil)
+    }
+//      self.delegate?.didUploadPost(self)
   }
   
   @objc func didTapDoneToolBtn() {
