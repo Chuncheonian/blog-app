@@ -11,12 +11,52 @@ private let reuseIdentifier = "PostCell"
 
 class FeedController: UITableViewController {
   
+  // MARK: - Properties
+  
+  private let floatingBtn: UIButton = {
+    let btn = UIButton(type: .system)
+    btn.setDimensions(height: 60, width: 60)
+    btn.backgroundColor = .systemCyan
+    btn.tintColor = .white
+    btn.layer.masksToBounds = true
+    btn.layer.cornerRadius = 60 / 2
+    let config = UIImage.SymbolConfiguration(pointSize: 35, weight: .medium, scale: .default)
+    let image = UIImage(systemName: "plus", withConfiguration: config)
+    btn.setImage(image, for: .normal)
+    return btn
+  }()
+
+  
   // MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.register(PostCell.self, forCellReuseIdentifier: reuseIdentifier)
     tableView.rowHeight = 200
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    if let view = UIApplication.shared.windows.first(where: \.isKeyWindow) {
+      view.addSubview(floatingBtn)
+      floatingBtn.anchor(bottom: view.bottomAnchor, right: view.rightAnchor, paddingBottom: 60, paddingRight: 20)
+      floatingBtn.addTarget(self, action: #selector(didTapFloatingBtn), for: .touchUpInside)
+    }
+  }
+    
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    if let view = UIApplication.shared.windows.first(where: \.isKeyWindow), floatingBtn.isDescendant(of: view) {
+      floatingBtn.removeFromSuperview()
+    }
+  }
+  
+  // MARK: - Action
+  
+  @objc func didTapFloatingBtn() {
+    let controller = UploadPostController()
+    // controller.modalPresentationStyle = .fullScreen
+    self.present(controller, animated: true, completion: nil)
   }
 }
 

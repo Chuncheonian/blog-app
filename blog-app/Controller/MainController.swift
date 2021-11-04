@@ -63,7 +63,7 @@ class MainController: UIViewController {
   @objc func didTapSearch() {
     print("DEBUG: Clicked Search Icon")
   }
-
+  
   
   // MARK: - Helpers
   
@@ -104,6 +104,7 @@ class MainController: UIViewController {
     pagingVC.selectedFont = UIFont(name: "NotoSansKR-Regular", size: 13)!
     pagingVC.textColor = .systemGray
     pagingVC.selectedTextColor = .black
+    
   }
   
   fileprivate func configureGuestUI() {
