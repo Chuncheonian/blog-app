@@ -153,6 +153,7 @@ extension MainController {
           return
         }
         self.viewWillAppear(true)
+        self.pagingVC.reloadData()
       }
     }
     
@@ -197,6 +198,7 @@ extension MainController {
       do {
         try Auth.auth().signOut()
         self.viewWillAppear(true)
+        self.pagingVC.reloadData()
       } catch {
         print("DEBUG: Failed to Sign out")
       }

@@ -51,10 +51,13 @@ class FeedController: UITableViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    if let view = UIApplication.shared.windows.first(where: \.isKeyWindow) {
-      view.addSubview(floatingBtn)
-      floatingBtn.anchor(bottom: view.bottomAnchor, right: view.rightAnchor, paddingBottom: 60, paddingRight: 20)
-      floatingBtn.addTarget(self, action: #selector(didTapFloatingBtn), for: .touchUpInside)
+    
+    if user.isCurrentUser == true {
+      if let view = UIApplication.shared.windows.first(where: \.isKeyWindow) {
+        view.addSubview(floatingBtn)
+        floatingBtn.anchor(bottom: view.bottomAnchor, right: view.rightAnchor, paddingBottom: 60, paddingRight: 20)
+        floatingBtn.addTarget(self, action: #selector(didTapFloatingBtn), for: .touchUpInside)
+      }
     }
   }
     

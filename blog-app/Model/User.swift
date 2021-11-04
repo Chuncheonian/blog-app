@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 struct User {
-    
+  
   let email: String
   let name: String
   let biography: String

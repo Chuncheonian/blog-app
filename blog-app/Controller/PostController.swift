@@ -147,31 +147,31 @@ class PostController: UIViewController {
     
     let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
-      let logInAction = UIAction(
-        title: "편집",
-        image: UIImage(systemName: "scissors")
-      ) { _ in
-        let controller = EditPostController()
-        controller.delegate = self
-        controller.viewModel = EditPostViewModel(user: self.user, post: self.post)
-        let nav = UINavigationController(rootViewController: controller)
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true, completion: nil)
-      }
+    let logInAction = UIAction(
+      title: "편집",
+      image: UIImage(systemName: "scissors")
+    ) { _ in
+      let controller = EditPostController()
+      controller.delegate = self
+      controller.viewModel = EditPostViewModel(user: self.user, post: self.post)
+      let nav = UINavigationController(rootViewController: controller)
+      nav.modalPresentationStyle = .fullScreen
+      self.present(nav, animated: true, completion: nil)
+    }
     
-      let settingAction = UIAction(
-        title: "삭제",
-        image: UIImage(systemName: "exclamationmark.triangle"),
-        attributes: .destructive
-      ) { _ in
-        PostService.deletePost(post: self.post) { error in
-          if let error = error {
-            print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
-            return
-          }
-          self.delegate?.didFinishDeletingPost(self)
+    let settingAction = UIAction(
+      title: "삭제",
+      image: UIImage(systemName: "exclamationmark.triangle"),
+      attributes: .destructive
+    ) { _ in
+      PostService.deletePost(post: self.post) { error in
+        if let error = error {
+          print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
+          return
         }
+        self.delegate?.didFinishDeletingPost(self)
       }
+    }
     
     let ellipsisBtn = UIBarButtonItem(
       title: "",
@@ -181,7 +181,12 @@ class PostController: UIViewController {
     )
     
     navigationController?.toolbar.tintColor = .black
-    self.setToolbarItems([flexSpace, commentBtn, flexSpace, flexSpace, flexSpace, flexSpace, flexSpace, ellipsisBtn, flexSpace], animated: true)
+    if user.isCurrentUser == true {
+      self.setToolbarItems([flexSpace, commentBtn, flexSpace, flexSpace, flexSpace, flexSpace, flexSpace, ellipsisBtn, flexSpace], animated: true)
+    } else {
+      self.setToolbarItems([commentBtn], animated: true)
+    }
+    
   }
   
   fileprivate func updateUI() {

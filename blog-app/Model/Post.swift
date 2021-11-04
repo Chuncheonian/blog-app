@@ -14,7 +14,7 @@ struct Post {
   var commentCount: Int
   let ownerUID: String
   let uuid: String
-  let timestamp: Timestamp
+  var timestamp: Timestamp
   let postID: String
   let ownerName: String
     
