@@ -39,6 +39,7 @@ class MainController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+
     configure()
     checkIfUserIsLoggedIn()
   }
@@ -103,7 +104,7 @@ class MainController: UIViewController {
     navigationItem.rightBarButtonItem = settingIcon
   }
   
-  func configureManagerUI() {
+  fileprivate func configureManagerUI() {
 
     let settingIcon = UIBarButtonItem(
       title: nil,

@@ -70,7 +70,7 @@ class FeedController: UITableViewController {
   
   // MARK: - API
   
-  func fetchPosts() {
+  fileprivate func fetchPosts() {
     PostService.fetchPosts { posts in
       self.posts = posts
       self.tableView.refreshControl?.endRefreshing()
@@ -95,7 +95,7 @@ class FeedController: UITableViewController {
   
   // MARK: - Helpers
   
-  func configure() {
+  fileprivate func configure() {
     tableView.register(PostCell.self, forCellReuseIdentifier: reuseIdentifier)
     tableView.rowHeight = 140
     

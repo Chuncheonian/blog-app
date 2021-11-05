@@ -66,17 +66,15 @@ class PostCell: UITableViewCell {
     contentLabel.anchor(top: titleLabel.bottomAnchor, left: titleLabel.leftAnchor, right: titleLabel.rightAnchor, paddingTop: 5)
     
     addSubview(postTimeLabel)
-//    postTimeLabel.anchor(top: contentLabel.bottomAnchor, left: titleLabel.leftAnchor, paddingTop: 8)
-     postTimeLabel.anchor(left: titleLabel.leftAnchor, bottom: bottomAnchor, paddingBottom: 10)
+    postTimeLabel.anchor(left: titleLabel.leftAnchor, bottom: bottomAnchor, paddingBottom: 10)
     
     addSubview(commentCountLabel)
-//    commentCountLabel.anchor(top: contentLabel.bottomAnchor, left: postTimeLabel.rightAnchor, paddingTop: 8, paddingLeft: 13)
-     commentCountLabel.anchor(left: postTimeLabel.rightAnchor, bottom: postTimeLabel.bottomAnchor, paddingLeft: 13)
+    commentCountLabel.anchor(left: postTimeLabel.rightAnchor, bottom: postTimeLabel.bottomAnchor, paddingLeft: 13)
     
   }
   
   required init?(coder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
+    fatalError("init(coder:) has not been implemented")
   }
   
   // MARK: - Helper
