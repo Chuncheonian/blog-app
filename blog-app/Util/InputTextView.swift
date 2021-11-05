@@ -15,21 +15,30 @@ class InputTextView: UITextView {
     didSet { placeholderLabel.text = placeholderText }
   }
     
-  private let placeholderLabel: UILabel = {
+  let placeholderLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont(name: "NotoSansKR-Regular", size: 16)
     label.textColor = .lightGray
     return label
   }()
     
+  var placeholderShouldCenter = true {
+    didSet {
+      if placeholderShouldCenter {
+        placeholderLabel.anchor(left: leftAnchor, right: rightAnchor, paddingLeft: 5)
+        placeholderLabel.centerY(inView: self)
+      } else {
+        placeholderLabel.anchor(top: topAnchor, left: leftAnchor, paddingLeft: 16)
+      }
+    }
+  }
+  
   // MARK: - Lifecycle
 
   override init(frame: CGRect, textContainer: NSTextContainer?) {
     super.init(frame: frame, textContainer: textContainer)
         
     addSubview(placeholderLabel)
-    placeholderLabel.anchor(top: topAnchor, left: leftAnchor,
-                               paddingLeft: 16)
         
     NotificationCenter.default.addObserver(
       self,

@@ -18,6 +18,12 @@
 		D518560B27341F280094E467 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560A27341F280094E467 /* PostController.swift */; };
 		D51856102734551B0094E467 /* EditPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560F2734551B0094E467 /* EditPostController.swift */; };
 		D5185612273455F50094E467 /* EditPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5185611273455F50094E467 /* EditPostViewModel.swift */; };
+		D518561C2734A3220094E467 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518561B2734A3220094E467 /* CommentController.swift */; };
+		D518561E2734A3520094E467 /* CommentInputAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518561D2734A3520094E467 /* CommentInputAccessoryView.swift */; };
+		D51856202734A4890094E467 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518561F2734A4880094E467 /* CommentCell.swift */; };
+		D51856222734A49D0094E467 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51856212734A49D0094E467 /* CommentViewModel.swift */; };
+		D51856242734A5D40094E467 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51856232734A5D40094E467 /* CommentService.swift */; };
+		D51856262734A6240094E467 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51856252734A6240094E467 /* Comment.swift */; };
 		D571A3CB272FA9B700294032 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CA272FA9B700294032 /* FirebaseAuth */; };
 		D571A3CD272FA9B700294032 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CC272FA9B700294032 /* FirebaseFirestore */; };
 		D571A3CF272FA9B700294032 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CE272FA9B700294032 /* FirebaseMessaging */; };
@@ -65,6 +71,12 @@
 		D518560A27341F280094E467 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		D518560F2734551B0094E467 /* EditPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostController.swift; sourceTree = "<group>"; };
 		D5185611273455F50094E467 /* EditPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewModel.swift; sourceTree = "<group>"; };
+		D518561B2734A3220094E467 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
+		D518561D2734A3520094E467 /* CommentInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccessoryView.swift; sourceTree = "<group>"; };
+		D518561F2734A4880094E467 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		D51856212734A49D0094E467 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		D51856232734A5D40094E467 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		D51856252734A6240094E467 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		D571A3D2272FAB8900294032 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		D571A3D4272FAF3400294032 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		D571A3D6272FAF8100294032 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -123,6 +135,7 @@
 				D5185611273455F50094E467 /* EditPostViewModel.swift */,
 				D571A3E12730130C00294032 /* EditProfileViewModel.swift */,
 				D5CBA31F2733116B00730B9A /* IntroViewModel.swift */,
+				D51856212734A49D0094E467 /* CommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -170,6 +183,7 @@
 			children = (
 				D571A3D6272FAF8100294032 /* User.swift */,
 				D51855FB2733FC2E0094E467 /* Post.swift */,
+				D51856252734A6240094E467 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +193,8 @@
 			children = (
 				D584FB88272D411C008C4653 /* ProfileView.swift */,
 				D50A1179272EE596008FEA79 /* PostCell.swift */,
+				D518561D2734A3520094E467 /* CommentInputAccessoryView.swift */,
+				D518561F2734A4880094E467 /* CommentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +207,7 @@
 				D518560A27341F280094E467 /* PostController.swift */,
 				D5B622D12733B20B00746565 /* UploadPostController.swift */,
 				D518560F2734551B0094E467 /* EditPostController.swift */,
+				D518561B2734A3220094E467 /* CommentController.swift */,
 				D5E3B6C0272E954F00F06612 /* IntroController.swift */,
 				D571A3DA272FF57A00294032 /* EditProfileController.swift */,
 				D571A3D8272FF31B00294032 /* SettingController.swift */,
@@ -217,6 +234,7 @@
 				D571A3DE27300E4F00294032 /* ImageUploader.swift */,
 				D571A3D4272FAF3400294032 /* UserService.swift */,
 				D51855FD2733FD700094E467 /* PostService.swift */,
+				D51856232734A5D40094E467 /* CommentService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -331,6 +349,7 @@
 				D584FB67272D3491008C4653 /* ViewController.swift in Sources */,
 				D5B622D22733B20C00746565 /* UploadPostController.swift in Sources */,
 				D584FB89272D411C008C4653 /* ProfileView.swift in Sources */,
+				D51856262734A6240094E467 /* Comment.swift in Sources */,
 				D571A3DF27300E5000294032 /* ImageUploader.swift in Sources */,
 				D5E3B6C1272E954F00F06612 /* IntroController.swift in Sources */,
 				D51855FE2733FD700094E467 /* PostService.swift in Sources */,
@@ -342,7 +361,11 @@
 				D5CBA3202733116B00730B9A /* IntroViewModel.swift in Sources */,
 				D584FB65272D3491008C4653 /* SceneDelegate.swift in Sources */,
 				D571A3D5272FAF3400294032 /* UserService.swift in Sources */,
+				D51856222734A49D0094E467 /* CommentViewModel.swift in Sources */,
+				D518561E2734A3520094E467 /* CommentInputAccessoryView.swift in Sources */,
 				D571A3E22730130C00294032 /* EditProfileViewModel.swift in Sources */,
+				D51856242734A5D40094E467 /* CommentService.swift in Sources */,
+				D518561C2734A3220094E467 /* CommentController.swift in Sources */,
 				D51855FC2733FC2E0094E467 /* Post.swift in Sources */,
 				D584FB85272D3AD1008C4653 /* MainController.swift in Sources */,
 				D571A3D7272FAF8100294032 /* User.swift in Sources */,
@@ -351,6 +374,7 @@
 				D571A3DB272FF57A00294032 /* EditProfileController.swift in Sources */,
 				D571A3D3272FAB8900294032 /* AuthService.swift in Sources */,
 				D5E3B6BF272E952900F06612 /* FeedController.swift in Sources */,
+				D51856202734A4890094E467 /* CommentCell.swift in Sources */,
 				D571A3D9272FF31B00294032 /* SettingController.swift in Sources */,
 				D5185612273455F50094E467 /* EditPostViewModel.swift in Sources */,
 				D50A117A272EE596008FEA79 /* PostCell.swift in Sources */,
@@ -505,9 +529,11 @@
 				DEVELOPMENT_TEAM = QHPW755BR8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "blog-app/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Blog;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -519,7 +545,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -533,9 +559,11 @@
 				DEVELOPMENT_TEAM = QHPW755BR8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "blog-app/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Blog;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -547,7 +575,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

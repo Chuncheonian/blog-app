@@ -44,6 +44,7 @@ class UploadPostController: UIViewController {
     tv.textContainerInset = UIEdgeInsets(top: 0, left: 11, bottom: 0, right: 11)
     tv.isEditable = true
     tv.font = UIFont(name: "NotoSansKR-Regular", size: 16)
+    tv.placeholderShouldCenter = false
     return tv
   }()
   

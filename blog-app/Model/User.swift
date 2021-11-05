@@ -16,7 +16,9 @@ struct User {
   let profileImageURL: String
   let uid: String
     
-  var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == self.uid }
+  var isCurrentUser: Bool {
+    return Auth.auth().currentUser?.uid == self.uid
+  }
     
   init(dictionary: [String: Any]) {
     self.email = dictionary["email"] as? String ?? ""

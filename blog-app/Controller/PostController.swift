@@ -76,7 +76,8 @@ class PostController: UIViewController {
   // MARK: - Action
   
   @objc func didTapCommentBtn() {
-    print("DEBUG: didTapCommentBtn")
+    let controller = CommentController(post: post, user: user)
+    navigationController?.pushViewController(controller, animated: true)
   }
   
   
@@ -212,6 +213,4 @@ extension PostController: EditPostControllerDelegte {
       }
     }
   }
-  
-  
 }
