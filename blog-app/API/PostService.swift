@@ -50,7 +50,7 @@ struct PostService {
       let data = ["title": title,
                   "content": content,
                   "imageURL": post.imageURL,
-                  "commentCount": 0,
+                  "commentCount": post.commentCount,
                   "timestamp": Timestamp(date: Date()),
                   "ownerUID": user.uid,
                   "uuid": post.uuid,
@@ -64,7 +64,7 @@ struct PostService {
         let data = ["title": title,
                     "content": content,
                     "imageURL": imageURL,
-                    "commentCount": 0,
+                    "commentCount": post.commentCount,
                     "timestamp": Timestamp(date: Date()),
                     "ownerUID": user.uid,
                     "uuid": post.uuid,
@@ -95,20 +95,4 @@ struct PostService {
   static func deletePost(post: Post, completion: @escaping(FirestoreCompletion)) {
     COLLECTION_POSTS.document(post.uuid).delete(completion: completion)
   }
-  
-//  static func fetchPosts(forUser uid: String, completion: @escaping([Post]) -> Void) {
-//      let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid)
-//
-//      query.getDocuments { (snapshot, error) in
-//          guard let documents = snapshot?.documents else { return }
-//
-//          var posts = documents.map({ Post(postId: $0.documentID, dictionary: $0.data())} )
-//
-//          posts.sort { (post1, post2) -> Bool in
-//              return post1.timestamp.seconds > post2.timestamp.seconds
-//          }
-//
-//          completion(posts)
-//      }
-//  }
 }
