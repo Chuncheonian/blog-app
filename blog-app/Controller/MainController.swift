@@ -20,8 +20,8 @@ class MainController: UIViewController {
   
   private let profile = ProfileView()
   private let pagingVC = PagingViewController()
-  private let menuArr = ["글", "소개"]
   private let intro = IntroController()
+  private let menuArr = ["글", "소개"]
   private let email = "admin@gmail.com"  // 자동로그인 가정
   private let password = "123456"         // 자동로그인 가정
 
@@ -57,27 +57,13 @@ class MainController: UIViewController {
       self.configureManagerUI()
     }
   }
-  
-  // MARK: - Actions
+    
 
-  @objc func didTapSearch() {
-    print("DEBUG: Clicked Search Icon")
-  }
-  
-  
   // MARK: - Helpers
   
   fileprivate func configure() {
     view.backgroundColor = .white
     self.navigationController?.navigationBar.tintColor = .black
-    
-    let searchIcon = UIBarButtonItem(
-      image: UIImage(systemName: "magnifyingglass"),
-      style: .plain,
-      target: self,
-      action: #selector(didTapSearch)
-    )
-    navigationItem.leftBarButtonItem = searchIcon
     
     // Profile
     profile.viewModel = ProfileViewModel(user: user)
@@ -157,15 +143,15 @@ extension MainController {
       }
     }
     
-    let settingAction = UIAction(
-      title: "설정",
-      image: UIImage(systemName: "gearshape")
-    ) { _ in
-      let controller = SettingController()
-      self.navigationController?.pushViewController(controller, animated: true)
-    }
+//    let settingAction = UIAction(
+//      title: "설정",
+//      image: UIImage(systemName: "gearshape")
+//    ) { _ in
+//      let controller = SettingController()
+//      self.navigationController?.pushViewController(controller, animated: true)
+//    }
     
-    return UIMenu(title: "", children: [logInAction, settingAction])
+    return UIMenu(title: "", children: [logInAction])
   }
   
   func createManagerMenu() -> UIMenu {
@@ -182,13 +168,13 @@ extension MainController {
       self.present(nav, animated: true, completion: nil)
     }
     
-    let settingAction = UIAction(
-      title: "설정",
-      image: UIImage(systemName: "gearshape")
-    ) { _ in
-      let controller = SettingController()
-      self.navigationController?.pushViewController(controller, animated: true)
-    }
+//    let settingAction = UIAction(
+//      title: "설정",
+//      image: UIImage(systemName: "gearshape")
+//    ) { _ in
+//      let controller = SettingController()
+//      self.navigationController?.pushViewController(controller, animated: true)
+//    }
     
     let logoutAction = UIAction(
       title: "로그아웃",
@@ -206,7 +192,7 @@ extension MainController {
     
     return UIMenu(
       title: "\(user.email)",
-      children: [profileEditAction, settingAction, logoutAction]
+      children: [profileEditAction, logoutAction]
     )
   }
 }
