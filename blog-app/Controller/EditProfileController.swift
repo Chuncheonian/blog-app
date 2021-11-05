@@ -101,7 +101,14 @@ class EditProfileController: UIViewController {
         "profileImageURL": viewModel.user.profileImageURL,
         "uid": viewModel.user.uid
       ]
-      COLLECTION_USERS.document(viewModel.user.uid).setData(data, completion: nil)
+      COLLECTION_USERS.document(viewModel.user.uid).setData(data) { error in
+        if let error = error {
+          print("DEBUG: Failed to upload post with error \(error.localizedDescription)")
+          return
+        }
+        self.showLoader(false)
+        self.delegate?.didChangeUser(self)
+      }
     } else {  // 사진 변경
       guard let selectedProfileImage = selectedProfileImage else { return }
       ImageUploader.uploadImage(image: selectedProfileImage, uid: viewModel.user.uid) { imageURL in

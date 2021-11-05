@@ -143,14 +143,6 @@ extension MainController {
       }
     }
     
-//    let settingAction = UIAction(
-//      title: "설정",
-//      image: UIImage(systemName: "gearshape")
-//    ) { _ in
-//      let controller = SettingController()
-//      self.navigationController?.pushViewController(controller, animated: true)
-//    }
-    
     return UIMenu(title: "", children: [logInAction])
   }
   
@@ -167,14 +159,6 @@ extension MainController {
       nav.modalPresentationStyle = .fullScreen
       self.present(nav, animated: true, completion: nil)
     }
-    
-//    let settingAction = UIAction(
-//      title: "설정",
-//      image: UIImage(systemName: "gearshape")
-//    ) { _ in
-//      let controller = SettingController()
-//      self.navigationController?.pushViewController(controller, animated: true)
-//    }
     
     let logoutAction = UIAction(
       title: "로그아웃",

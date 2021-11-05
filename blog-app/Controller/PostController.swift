@@ -29,7 +29,14 @@ class PostController: UIViewController {
     return label
   }()
   
-  private let postTimeLabel: UILabel = {
+  private lazy var commentCountLabel: UILabel = {
+    let label = UILabel()
+    label.font = UIFont(name: "NotoSansKR-Light", size: 12)
+    label.textColor = .lightGray
+    return label
+  }()
+  
+  private lazy var postTimeLabel: UILabel = {
     let label = UILabel()
     label.font = UIFont(name: "NotoSansKR-Light", size: 12)
     label.textColor = .lightGray
@@ -110,11 +117,16 @@ class PostController: UIViewController {
     contentView.addSubview(divider)
     divider.anchor(top: titleLabel.bottomAnchor, paddingTop: 8, width: view.frame.width, height: 1)
     divider.backgroundColor = .secondarySystemBackground
-    
+        
     contentView.addSubview(postTimeLabel)
     postTimeLabel.anchor(top: divider.bottomAnchor, right: titleLabel.rightAnchor,
-                         paddingTop: 5, paddingRight: 8)
+                            paddingTop: 5, paddingRight: 8)
     postTimeLabel.text = "\(TimestampString.dateString(post.timestamp)) 전"
+
+    contentView.addSubview(commentCountLabel)
+    commentCountLabel.anchor(top: postTimeLabel.topAnchor, right: postTimeLabel.leftAnchor,
+                                paddingRight: 20)
+    commentCountLabel.text = "\(post.commentCount)개의 댓글"
 
     if post.imageURL != "" {
       contentView.addSubview(imageView)
@@ -193,6 +205,7 @@ class PostController: UIViewController {
   fileprivate func updateUI() {
     titleLabel.text = post.title
     postTimeLabel.text = "\(TimestampString.dateString(post.timestamp)) 전"
+    commentCountLabel.text = "\(post.commentCount)"
     imageView.kf.setImage(with: URL(string: post.imageURL))
     contentLabel.text = post.content
   }
