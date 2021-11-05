@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     IQKeyboardManager.shared.enableAutoToolbar = false
     IQKeyboardManager.shared.enableAutoToolbar = true
     
+    sleep(2)
     return true
   }
 
@@ -46,7 +47,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
     return UIInterfaceOrientationMask.portrait
   }
-
-
 }
-
