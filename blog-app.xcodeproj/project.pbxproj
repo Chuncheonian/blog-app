@@ -13,7 +13,6 @@
 		D51855FE2733FD700094E467 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51855FD2733FD700094E467 /* PostService.swift */; };
 		D51856002733FE790094E467 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51855FF2733FE790094E467 /* Constants.swift */; };
 		D518560527340C670094E467 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = D518560427340C670094E467 /* JGProgressHUD */; };
-		D518560727340D450094E467 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560627340D450094E467 /* PostViewModel.swift */; };
 		D5185609273417F50094E467 /* TimestampString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5185608273417F50094E467 /* TimestampString.swift */; };
 		D518560B27341F280094E467 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560A27341F280094E467 /* PostController.swift */; };
 		D51856102734551B0094E467 /* EditPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D518560F2734551B0094E467 /* EditPostController.swift */; };
@@ -26,7 +25,6 @@
 		D51856262734A6240094E467 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51856252734A6240094E467 /* Comment.swift */; };
 		D571A3CB272FA9B700294032 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CA272FA9B700294032 /* FirebaseAuth */; };
 		D571A3CD272FA9B700294032 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CC272FA9B700294032 /* FirebaseFirestore */; };
-		D571A3CF272FA9B700294032 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3CE272FA9B700294032 /* FirebaseMessaging */; };
 		D571A3D1272FA9B700294032 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D571A3D0272FA9B700294032 /* FirebaseStorage */; };
 		D571A3D3272FAB8900294032 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571A3D2272FAB8900294032 /* AuthService.swift */; };
 		D571A3D5272FAF3400294032 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571A3D4272FAF3400294032 /* UserService.swift */; };
@@ -57,6 +55,7 @@
 		D5E3B6C3272E9BFD00F06612 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6C2272E9BFD00F06612 /* NotoSansKR-Light.otf */; };
 		D5E3B6C9272EAB9C00F06612 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6C8272EAB9B00F06612 /* NotoSansKR-Medium.otf */; };
 		D5E3B6CB272EB00400F06612 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D5E3B6CA272EB00400F06612 /* NotoSansKR-Regular.otf */; };
+		D5FBB375273525A90030B34B /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FBB374273525A90030B34B /* PostViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +64,6 @@
 		D51855FB2733FC2E0094E467 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D51855FD2733FD700094E467 /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		D51855FF2733FE790094E467 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		D518560627340D450094E467 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = SOURCE_ROOT; };
 		D5185608273417F50094E467 /* TimestampString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampString.swift; sourceTree = "<group>"; };
 		D518560A27341F280094E467 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		D518560F2734551B0094E467 /* EditPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostController.swift; sourceTree = "<group>"; };
@@ -104,6 +102,7 @@
 		D5E3B6C2272E9BFD00F06612 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		D5E3B6C8272EAB9B00F06612 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
 		D5E3B6CA272EB00400F06612 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		D5FBB374273525A90030B34B /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +112,6 @@
 			files = (
 				D5CBA31A2732C60200730B9A /* IQKeyboardManagerSwift in Frameworks */,
 				D571A3E8273016BA00294032 /* Kingfisher in Frameworks */,
-				D571A3CF272FA9B700294032 /* FirebaseMessaging in Frameworks */,
 				D573B376272F804000FFD11F /* Parchment in Frameworks */,
 				D518560527340C670094E467 /* JGProgressHUD in Frameworks */,
 				D571A3CB272FA9B700294032 /* FirebaseAuth in Frameworks */,
@@ -129,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				D5CBA31B2732E1BF00730B9A /* ProfileViewModel.swift */,
-				D518560627340D450094E467 /* PostViewModel.swift */,
+				D5FBB374273525A90030B34B /* PostViewModel.swift */,
 				D5185611273455F50094E467 /* EditPostViewModel.swift */,
 				D571A3E12730130C00294032 /* EditProfileViewModel.swift */,
 				D5CBA31F2733116B00730B9A /* IntroViewModel.swift */,
@@ -267,7 +265,6 @@
 				D573B375272F804000FFD11F /* Parchment */,
 				D571A3CA272FA9B700294032 /* FirebaseAuth */,
 				D571A3CC272FA9B700294032 /* FirebaseFirestore */,
-				D571A3CE272FA9B700294032 /* FirebaseMessaging */,
 				D571A3D0272FA9B700294032 /* FirebaseStorage */,
 				D571A3E7273016BA00294032 /* Kingfisher */,
 				D5CBA3192732C60200730B9A /* IQKeyboardManagerSwift */,
@@ -342,7 +339,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D51856102734551B0094E467 /* EditPostController.swift in Sources */,
-				D518560727340D450094E467 /* PostViewModel.swift in Sources */,
 				D584FB67272D3491008C4653 /* ViewController.swift in Sources */,
 				D5B622D22733B20C00746565 /* UploadPostController.swift in Sources */,
 				D584FB89272D411C008C4653 /* ProfileView.swift in Sources */,
@@ -360,6 +356,7 @@
 				D571A3D5272FAF3400294032 /* UserService.swift in Sources */,
 				D51856222734A49D0094E467 /* CommentViewModel.swift in Sources */,
 				D518561E2734A3520094E467 /* CommentInputAccessoryView.swift in Sources */,
+				D5FBB375273525A90030B34B /* PostViewModel.swift in Sources */,
 				D571A3E22730130C00294032 /* EditProfileViewModel.swift in Sources */,
 				D51856242734A5D40094E467 /* CommentService.swift in Sources */,
 				D518561C2734A3220094E467 /* CommentController.swift in Sources */,
@@ -520,6 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHPW755BR8;
@@ -550,6 +548,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QHPW755BR8;
@@ -656,11 +655,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D571A3C9272FA9B700294032 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
-		};
-		D571A3CE272FA9B700294032 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D571A3C9272FA9B700294032 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
 		};
 		D571A3D0272FA9B700294032 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
